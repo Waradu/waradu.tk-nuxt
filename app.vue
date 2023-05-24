@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
+</template>
+
+<style>
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/Inter.woff2") format("woff2");
+  font-display: swap;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #444446 #171618;
+  box-sizing: border-box;
+  font-family: Inter !important;
+}
+</style>
