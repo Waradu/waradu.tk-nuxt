@@ -1,4 +1,129 @@
 <template>
+  <svg
+    class="border shadow-md"
+    viewBox="0 0 540.32 540.32"
+    style="
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    "
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+  >
+    <rect
+      class="bg"
+      id="bg"
+      x="0"
+      y="0"
+      width="540.32"
+      height="540.32"
+      fill="#ffffff"
+    ></rect>
+    <g transform="rotate(0 270.16 270.16)">
+      <path
+        d="M -370.16 -24.03 S -195.08 -51.05
+            0.00 -24.03 65.16 -51.05
+            370.16 -24.03 545.24 -51.05
+            740.32 -24.03 793.48 -74.03
+            1110.48 -24.03 h 110 V 740.32 H -370.16 Z"
+        fill="#19181D"
+        id="-1"
+      ></path>
+      <path
+        d="M -370.16 30.00 S -195.08 -22.00
+            0.00 30.00 148.16 -4.00
+            370.16 30.00 374.32 -3.00
+            740.32 30.00 915.40 -10.00
+            1110.48 30.00 h 110 V 740.32 H -370.16 Z"
+        fill="#18171c"
+        id="0"
+      ></path>
+      <path
+        id="1"
+        d="M -370.16 84.03 S -227.00 57.02
+            0.00 84.03 175.08 57.02
+            370.16 84.03 545.24 44.03
+            740.32 84.03 891.48 37.03
+            1110.48 84.03 h 110 V 740.32 H -370.16 Z"
+        fill="#17161b"
+      ></path>
+      <path
+        id="2"
+        d="M -370.16 138.06 S -339.00 111.05
+            0.00 138.06 175.08 98.06
+            370.16 138.06 545.24 111.05
+            740.32 138.06 772.48 111.05
+            1110.48 138.06 h 110 V 740.32 H -370.16 Z"
+        fill="#16151a"
+      ></path>
+      <path
+        id="3"
+        d="M -370.16 192.10 S -311.00 163.10
+            0.00 192.10 104.16 165.08
+            370.16 192.10 371.32 154.10
+            740.32 192.10 915.40 165.08
+            1110.48 192.10 h 110 V 740.32 H -370.16 Z"
+        fill="#151419"
+      ></path>
+      <path
+        id="4"
+        d="M -370.16 246.13 S -247.00 219.11
+            0.00 246.13 29.16 219.11
+            370.16 246.13 512.32 219.11
+            740.32 246.13 908.48 219.11
+            1110.48 246.13 h 110 V 740.32 H -370.16 Z"
+        fill="#141318"
+      ></path>
+      <path
+        id="5"
+        d="M -370.16 300.16 S -270.00 273.14
+            0.00 300.16 175.08 252.16
+            370.16 300.16 538.32 273.14
+            740.32 300.16 915.40 255.16
+            1110.48 300.16 h 110 V 740.32 H -370.16 Z"
+        fill="#131217"
+      ></path>
+      <path
+        id="6"
+        d="M -370.16 354.19 S -195.08 327.18
+            0.00 354.19 175.08 320.19
+            370.16 354.19 384.32 327.18
+            740.32 354.19 891.48 303.19
+            1110.48 354.19 h 110 V 740.32 H -370.16 Z"
+        fill="#121116"
+      ></path>
+      <path
+        id="7"
+        d="M -370.16 408.22 S -308.00 358.22
+            0.00 408.22 31.16 376.22
+            370.16 408.22 491.32 359.22
+            740.32 408.22 915.40 371.22
+            1110.48 408.22 h 110 V 740.32 H -370.16 Z"
+        fill="#111015"
+      ></path>
+      <path
+        id="8"
+        d="M -370.16 462.26 S -195.08 418.26
+            0.00 462.26 161.16 435.24
+            370.16 462.26 545.24 435.24
+            740.32 462.26 915.40 435.24
+            1110.48 462.26 h 110 V 740.32 H -370.16 Z"
+        fill="#100f14"
+      ></path>
+      <path
+        id="9"
+        d="M -370.16 516.29 S -380.00 479.29
+            0.00 516.29 175.08 489.27
+            370.16 516.29 531.32 489.27
+            740.32 516.29 915.40 489.27
+            1110.48 516.29 h 110 V 740.32 H -370.16 Z"
+        fill="#0f0e13"
+      ></path>
+    </g>
+  </svg>
   <div class="test">
     <img
       src="~/assets/images/wrdu.png"
@@ -21,42 +146,63 @@
       <p class="p">Developer, Gamer und</p>
       <p class="p" id="random">3vTaL</p>
     </div>
-    <br />
     <div class="icons">
       <!-- <span class="material-symbols-rounded html">html</span>
 			<span class="material-symbols-rounded css">css</span>
 			<span class="material-symbols-rounded js">javascript</span> -->
-      <a href="" class="material-symbols-rounded icon person"
-        >person
-        <div class="hover">About Me</div></a
-      >
-      <div class="icon-container">
+      <a href="#" class="icon-container" style="--hover_color: #66ff66">
         <div class="icon material-symbols-rounded">person</div>
-        <div class="icon_hover">person</div>
-      </div>
-      <a href="" class="material-symbols-rounded icon code"
-        >code
-        <div class="hover">Projects</div></a
-      >
-      <a href="" class="material-symbols-rounded icon play_arrow"
-        >play_arrow
-        <div class="hover">My top animes</div></a
-      >
-      <a href="" class="material-symbols-rounded icon stadia_controller"
-        >stadia_controller
-        <div class="hover">Games I play</div></a
-      >
+        <div class="icon_hover">About Me</div>
+      </a>
+      <a href="#" class="icon-container" style="--hover_color: #ab69b6">
+        <div class="icon material-symbols-rounded">code</div>
+        <div class="icon_hover">Projects</div>
+      </a>
+      <a href="#" class="icon-container" style="--hover_color: #ff6666">
+        <div class="icon material-symbols-rounded">play_arrow</div>
+        <div class="icon_hover">My top animes</div>
+      </a>
+      <a href="#" class="icon-container" style="--hover_color: #b35400">
+        <div class="icon material-symbols-rounded">stadia_controller</div>
+        <div class="icon_hover">Games I play</div>
+      </a>
+      <a href="#" class="icon-container" style="--hover_color: #f1c40f">
+        <div class="icon material-symbols-rounded">forum</div>
+        <div class="icon_hover">Contact Me</div>
+      </a>
+
       <a
-        style="display: none"
-        href=""
-        class="material-symbols-rounded icon music_note"
-        >music_note
-        <div class="hover">Favorit Music</div></a
+        href="#"
+        class="icon-container"
+        style="--hover_color: #1abc9c; display: none"
       >
-      <a href="" class="material-symbols-rounded icon chat"
-        >chat
-        <div class="hover">Contact Me</div></a
+        <div class="icon material-symbols-rounded">music_note</div>
+        <div class="icon_hover">Favorit Music</div>
+      </a>
+      <a
+        href="#"
+        class="icon-container"
+        style="--hover_color: #e44d26; display: none"
       >
+        <div class="icon material-symbols-rounded">html</div>
+        <div class="icon_hover">Html</div>
+      </a>
+      <a
+        href="#"
+        class="icon-container"
+        style="--hover_color: #ffca28; display: none"
+      >
+        <div class="icon material-symbols-rounded">css</div>
+        <div class="icon_hover">Css</div>
+      </a>
+      <a
+        href="#"
+        class="icon-container"
+        style="--hover_color: #42a5f5; display: none"
+      >
+        <div class="icon material-symbols-rounded">javascript</div>
+        <div class="icon_hover">Javascript</div>
+      </a>
     </div>
   </div>
 </template>
@@ -92,6 +238,7 @@ export default {
       return result;
     }
     window.setInterval(() => {
+      // @ts-ignore
       document.getElementById("random").innerText = makeid(5);
     }, 80);
   },
@@ -99,5 +246,5 @@ export default {
 </script>
 
 <style>
-@import url('~/assets/css/index.css');
+@import url("~/assets/css/index.scss");
 </style>
