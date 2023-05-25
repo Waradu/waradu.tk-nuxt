@@ -56,6 +56,7 @@ body {
 }
 
 .img {
+  z-index: 1;
   width: 150px;
   grid-column: 1 / 2;
   grid-row: 1 / 4;
@@ -209,12 +210,19 @@ body {
 }
 
 @media (max-width: 600px) {
+  #__nuxt {
+    width: 100%;
+  }
   .content-grid {
+    position: absolute;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 200px 100px 40px 40px;
     place-items: center;
     height: 100%;
+    width: 100vw;
+    left: 0;
+    top: 100px;
   }
   .img {
     grid-column: 1 / 2;
@@ -228,5 +236,11 @@ body {
   .icons {
     grid-column: 1 / 2;
     grid-row: 4 / 5;
+  }
+  .bigger {
+    font-size: 50px;
+  }
+  .bigger:hover {
+    font-size: 60px;
   }
 }
