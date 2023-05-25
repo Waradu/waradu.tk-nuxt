@@ -197,6 +197,7 @@
       </a>
     </div>
   </div>
+  <navigator />
 </template>
 
 <script lang="ts">

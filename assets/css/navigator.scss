@@ -1,0 +1,64 @@
+@font-face {
+  font-family: genshin;
+  src: url("~/assets/fonts/zh-cn.ttf");
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("~/assets/fonts/Inter.woff2");
+}
+
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+  color: var(--txb);
+}
+
+a {
+  text-decoration: none;
+  color: var(--txb);
+}
+
+.nav-container {
+  width: 500px;
+  height: 800px;
+  position: fixed;
+  background-color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  bottom: calc(110px - 800px);
+  baottom: 0;
+  display: grid;
+  grid-template-rows: 15px 80px calc(100% - 95px);
+  color: var(--txt);
+  place-items: center;
+  padding: 10px;
+  padding-top: 5px;
+
+  .top-arrow {
+    font-family: 'Material Symbols Rounded' !important;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    color: var(--tx);
+  }
+
+  .quick-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, calc(100% / 6));
+    place-items: center;
+    height: 100%;
+
+    .nav-icon {
+      background-color: var(--search);
+      width: 85%;
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+    }
+  }
+}
