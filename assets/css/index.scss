@@ -67,60 +67,16 @@ body {
   cursor: pointer;
   color: var(--t);
 
-  font-family: genshin;
+  font-family: Inter;
 
   display: flex;
   align-self: end;
-  font-size: 50px;
+  font-size: 70px;
   font-weight: 700;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   line-height: 70px;
-
-  background: linear-gradient(
-      90deg,
-      hsl(0, 90%, 65%),
-      hsl(0.25turn, 90%, 65%),
-      hsl(0.5turn, 90%, 65%),
-      hsl(0.75turn, 90%, 65%),
-      hsl(1turn, 90%, 65%),
-      hsl(0.75turn, 90%, 65%),
-      hsl(0.5turn, 90%, 65%),
-      hsl(0.5turn, 90%, 65%),
-      hsl(0.25turn, 90%, 65%),
-      hsl(0, 90%, 65%)
-    )
-    0 0 / 800% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
   transition: 0.1s;
-}
-
-.th {
-  font-family: genshin;
-  color: var(--t);
-  transition: 0.2s;
-  animation: scale 0.5s cubic-bezier(0, 0.43, 0.39, 2) calc(2s + var(--delay)) 1
-    both;
-}
-
-.th:hover {
-  font-size: 60px;
-  color: white;
-}
-
-.h1 > .bigger {
-  margin-top: -7px;
-  color: var(--t);
-  font-family: genshin;
-  font-size: 70px;
-  transition: 0.2s;
-}
-
-.h1 > .bigger:hover {
-  font-size: 80px;
-  color: white;
-  margin-left: -5px;
 }
 
 .text-container {
@@ -130,8 +86,6 @@ body {
 .text-container .p {
   margin-left: 5px;
   font-size: 20px;
-  font-weight: 300;
-  font-family: "Inter", sans-serif;
   color: var(--tx);
   animation: fade_in 0.5s cubic-bezier(0, 0.43, 0.39, 2)
     calc(2.3s + var(--delay)) 1 both;
@@ -225,10 +179,12 @@ body {
   position: relative;
   display: block;
   font-family: smallCaps;
-  font-size: 18px !important;
+  font-variant: small-caps;
+  font-size: 16px !important;
   letter-spacing: 1px;
   padding: 3px;
-  padding-top: 1px;
+  padding-top: 0.5px;
+  height: 28px;
   padding-right: 7px;
   padding-inline: 8px;
   width: max-content;
@@ -241,12 +197,16 @@ body {
   transition: 0.2s;
   animation: bottom_top 0.5s cubic-bezier(0, 0.43, 0.39, 2)
     calc(2.8s + var(--delay)) 1 both;
+
+  div {
+    line-height: 2px;
+  }
 }
 .tags:hover {
   .tag:hover {
     filter: brightness(120%);
     scale: 1.05;
-  }  
+  }
   .tag:not(:hover) {
     filter: brightness(90%) opacity(70%);
     scale: 0.95;
@@ -282,14 +242,6 @@ body {
   to {
     opacity: 1;
   }
-}
-
-.center > div {
-  font-family: Inter;
-  font-size: 18px !important;
-  color: var(--tx);
-  position: relative;
-  translate: 0 -4px;
 }
 
 .stfont {

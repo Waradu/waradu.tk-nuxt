@@ -16,12 +16,12 @@
 
 @font-face {
   font-family: smallCaps;
-  src: url("~/assets/fonts/smallCaps.ttf");
+  src: url("~/assets/fonts/mor.ttf");
 }
 
 @font-face {
   font-family: Inter;
-  src: url("~/assets/fonts/Inter.woff2");
+  src: url("~/assets/fonts/Inter-Regular.woff2");
 }
 
 

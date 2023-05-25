@@ -11,12 +11,7 @@
       data-tilt-reverse="true"
     />
     <h1 class="h1">
-      <div class="bigger th" style="--delay: .1s;">W</div>
-      <div class="th" style="--delay: .2s;">A</div>
-      <div class="th" style="--delay: .3s;">R</div>
-      <div class="th" style="--delay: .4s;">A</div>
-      <div class="th" style="--delay: .5s;">D</div>
-      <div class="th" style="--delay: .6s;">U</div>
+      Waradu
     </h1>
     <div class="text-container">
       <span class="p" style="--delay: .1s;">Developer,</span>
@@ -25,12 +20,12 @@
       <span class="p" style="--delay: .5s;" id="random">3vTaL</span>
     </div>
     <div class="tags">
-      <div class="tag" style="--delay: .1s;">html/css/js</div>
-      <div class="tag" style="--delay: .2s;">minecraft</div>
-      <div class="tag" style="--delay: .3s;">git</div>
-      <div class="tag" style="--delay: .4s;">python</div>
-      <div class="tag" style="--delay: .5s;">tauri/nuxt</div>
-      <div class="tag center" style="--delay: .6s;"><div>...</div></div>
+      <div class="tag" style="--delay: .1s;">HTML/CSS/JS</div>
+      <div class="tag" style="--delay: .2s;">MINECRAFT</div>
+      <div class="tag" style="--delay: .3s;">GIT</div>
+      <div class="tag" style="--delay: .4s;">PYTHON</div>
+      <div class="tag" style="--delay: .5s;">TAURI/NUXT</div>
+      <div class="tag" style="--delay: .6s;"><div>...</div></div>
     </div>
   </div>
   <navigator />
