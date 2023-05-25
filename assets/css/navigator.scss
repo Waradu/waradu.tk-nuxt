@@ -33,20 +33,21 @@ a {
   border-radius: 20px;
   bottom: 15px;
   display: grid;
-  grid-template-rows: 15px 80px calc(100% - 95px);
+  grid-template-rows: 15px 0px 65px auto;
   color: var(--txt);
   place-items: center;
-  padding: 10px;
+  padding-inline: 20px;
   padding-top: 5px;
   user-select: none;
-  transition: 0.3s;
-  transition-timing-function: cubic-bezier(0.3, -0.17, 0.17, 1.3);
+  transition: height 0.3s ease-in-out, grid-template-rows .3s ease-in-out;
 
   .top-arrow {
     font-family: "Material Symbols Rounded" !important;
     -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
     color: var(--tx);
+    padding-inline: 50px;
+    transition: rotate .2s;
   }
 
   .top-arrow.animate {
@@ -58,15 +59,18 @@ a {
   }
 
   .quick-actions {
+    transition: margin .3s;
+    margin-top: 10px;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(6, calc(100% / 6));
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 100%;
 
     .nav-icon {
       background-color: var(--search);
-      width: 85%;
+      transition: .3s;
+      width: 60px;
       aspect-ratio: 1 / 1;
       display: grid;
       place-items: center;
@@ -75,8 +79,33 @@ a {
   }
 }
 
+.search-bar {
+  background-color: var(--fg);
+  border: 0px solid var(--search);
+  padding: 0;
+  width: 100%;
+  border-radius: 8px;
+  height: 0px;
+  outline: none;
+  transition: all .3s, border .1s;
+  color: var(--tx);
+}
+
+.nav-container.open .search-bar {
+  height: calc(100% - 20px);
+  pointer-events: unset;
+  border: 1px solid var(--search);
+  padding: 6px;
+  padding-inline: 15px;
+}
+
 .nav-container.open {
   height: 800px;
+  grid-template-rows: 15px 50px 65px auto;
+
+  .quick-actions {
+    margin-top: 0px;
+  }
 }
 
 @keyframes arrow {
@@ -100,10 +129,10 @@ a {
 @media (max-width: 600px) {
   .nav-container {
     width: 100vw;
-    border-bottom: none;
+    border: none;
+    border-top: 1px solid var(--border);
     border-radius: 20px 20px 0 0;
     bottom: 0px;
-    padding: 8px;
     padding-top: 6px;
   }
 
@@ -111,5 +140,13 @@ a {
     height: 100%;
     border-radius: 0;
     border: 0;
+
+    .quick-actions {
+      margin-top: 0px;
+  
+      .nav-icon {
+        width: 55px;
+      }
+    }
   }
 }

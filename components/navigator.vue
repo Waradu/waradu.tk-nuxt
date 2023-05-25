@@ -1,12 +1,13 @@
 <template>
   <div class="nav-container" :class="{ open: isNavbarOpen }">
     <div
-      class="top-arrow animate"
+      class="top-arrow"
       :class="{ rotated: isNavbarOpen, animate: animate }"
       @click="toggleNavbar"
     >
       expand_less
     </div>
+    <input type="text" class="search-bar" id="search-bar" />
     <div class="quick-actions">
       <div class="nav-icon">A</div>
       <div class="nav-icon">B</div>
@@ -30,7 +31,7 @@ export default {
       isNavbarOpen: false,
       startY: 0,
       clicking: false,
-      animate: true
+      animate: true,
     };
   },
   mounted() {
@@ -40,33 +41,56 @@ export default {
     setupNavbarInteraction() {
       var navContainer = document.querySelector(".nav-container");
 
-      // Handle swipe up gesture on the navbar
+      // @ts-ignore
       navContainer.addEventListener("mousedown", (event) => {
+        // @ts-ignore
         this.startY = event.clientY;
         this.clicking = true;
-        console.log(this.clicking)
       });
 
       document.addEventListener("mouseup", (event) => {
-        this.startY = 0
+        this.startY = 0;
         this.clicking = false;
-        console.log(this.clicking)
       });
 
+      var main = this
+
+      document.addEventListener("mousedown", (event) => {
+        var navContainer = document.querySelector(".nav-container");
+        var clickedElement = event.target;
+        // @ts-ignore
+        if (!navContainer.contains(clickedElement) && main.isNavbarOpen) {
+          main.toggleNavbar()
+        }
+      });
+
+
+      document.addEventListener("keydown", function (event) {
+        if (event.ctrlKey && event.code === "Space") {
+          main.toggleNavbar()
+          if (main.isNavbarOpen) {
+            // @ts-ignore
+            document.getElementById("search-bar").focus()
+          }
+        }
+      });
+
+      // @ts-ignore
       navContainer.addEventListener("mousemove", (event) => {
         if (this.clicking) {
+          // @ts-ignore
           var endY = event.clientY;
           var deltaY = this.startY - endY;
 
           if (deltaY > 30 || deltaY < -30) {
             this.toggleNavbar();
-            this.clicking = false
+            this.clicking = false;
           }
         }
       });
     },
     toggleNavbar() {
-      this.animate = false
+      this.animate = false;
       this.isNavbarOpen = !this.isNavbarOpen;
     },
   },

@@ -135,13 +135,18 @@
       <div class="th">U</div>
     </h1>
     <div class="text-container">
-      <p class="p">Developer, Gamer und</p>
-      <p class="p" id="random">3vTaL</p>
+      <span class="p">Developer, Gamer und</span>
+      <span class="p" id="random">3vTaL</span>
     </div>
-    <div class="icons">
-      <!-- <span class="material-symbols-rounded html">html</span>
-			<span class="material-symbols-rounded css">css</span>
-			<span class="material-symbols-rounded js">javascript</span> -->
+    <div class="tags">
+      <div class="tag">html/css/js</div>
+      <div class="tag">minecraft</div>
+      <div class="tag">git</div>
+      <div class="tag">python</div>
+      <div class="tag">tauri/nuxt</div>
+      <div class="tag center"><div>...</div></div>
+    </div>
+    <!-- <div class="icons">
       <a href="#" class="icon-container" style="--hover_color: #66ff66">
         <div class="icon material-symbols-rounded">person</div>
         <div class="icon_hover">About Me</div>
@@ -195,7 +200,7 @@
         <div class="icon material-symbols-rounded">javascript</div>
         <div class="icon_hover">Javascript</div>
       </a>
-    </div>
+    </div> -->
   </div>
   <navigator />
 </template>
