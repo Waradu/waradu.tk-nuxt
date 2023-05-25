@@ -16,7 +16,14 @@
       <div class="nav-icon">E</div>
       <div class="nav-icon">F</div>
     </div>
-    <div class="other"></div>
+    <div class="tabs">
+      <div class="tab">a</div>
+      <div class="tab">b</div>
+      <div class="tab">c</div>
+      <div class="tab">d</div>
+      <div class="tab">e</div>
+      <div class="tab">f</div>
+    </div>
   </div>
 </template>
 

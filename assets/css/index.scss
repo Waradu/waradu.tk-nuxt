@@ -252,19 +252,26 @@ body:has(.nav-container.open) .content-grid {
 }
 
 @media (max-width: 600px) {
+  .text-container, .h1 {
+    justify-self: center;
+  }
+  .tags {
+    justify-content: center;
+  }
   #__nuxt {
     width: 100%;
   }
   .content-grid {
-    position: absolute;
+    margin-top: -150px;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 200px 100px 40px 40px;
+    grid-template-rows: 200px 100px 60px auto;
     place-items: center;
     height: 100%;
     width: 100vw;
     left: 0;
     top: 100px;
+    padding-inline: 20px;
   }
   .img {
     grid-column: 1 / 2;
