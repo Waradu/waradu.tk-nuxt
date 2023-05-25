@@ -40,6 +40,7 @@ body {
 }
 
 .content-grid {
+  margin-top: -100px;
   display: grid;
   grid-template-columns: 200px 300px;
   grid-template-rows: 100px 40px auto;
@@ -53,12 +54,12 @@ body {
   width: 150px;
   grid-column: 1 / 2;
   grid-row: 1 / 4;
-  transition: scale 0.5s;
+  transition: filter 0.5s;
   align-self: flex-end;
 }
 
 .img:hover {
-  scale: 1.03;
+  filter: brightness(120%);
 }
 
 .h1 {
@@ -299,7 +300,6 @@ body:has(.nav-container.open) .content-grid {
     width: 100%;
   }
   .content-grid {
-    margin-top: -150px;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 200px 100px 60px auto;
