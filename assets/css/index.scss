@@ -44,12 +44,12 @@ body {
   display: grid;
   grid-template-columns: 200px 300px;
   grid-template-rows: 100px 40px auto;
-  transition: filter .3s;
+  transition: filter 0.3s;
   place-items: center;
 }
 
 .img {
-  animation: scale .5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(2s) 1 both;
+  animation: scale 0.5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(2s) 1 both;
   z-index: 1;
   width: 150px;
   grid-column: 1 / 2;
@@ -100,7 +100,8 @@ body {
   font-family: genshin;
   color: var(--t);
   transition: 0.2s;
-  animation: scale .5s cubic-bezier(0, 0.43, 0.39, 2) calc(2s + var(--delay)) 1 both;
+  animation: scale 0.5s cubic-bezier(0, 0.43, 0.39, 2) calc(2s + var(--delay)) 1
+    both;
 }
 
 .th:hover {
@@ -132,7 +133,8 @@ body {
   font-weight: 300;
   font-family: "Inter", sans-serif;
   color: var(--tx);
-  animation: fade_in .5s cubic-bezier(0, 0.43, 0.39, 2) calc(2.3s + var(--delay)) 1 both;
+  animation: fade_in 0.5s cubic-bezier(0, 0.43, 0.39, 2)
+    calc(2.3s + var(--delay)) 1 both;
 }
 
 .icons {
@@ -236,7 +238,19 @@ body {
   color: var(--tx);
   user-select: none;
   cursor: pointer;
-  animation: bottom_top .5s cubic-bezier(0, 0.43, 0.39, 2) calc(2.8s + var(--delay)) 1 both;
+  transition: 0.2s;
+  animation: bottom_top 0.5s cubic-bezier(0, 0.43, 0.39, 2)
+    calc(2.8s + var(--delay)) 1 both;
+}
+.tags:hover {
+  .tag:hover {
+    filter: brightness(120%);
+    scale: 1.05;
+  }  
+  .tag:not(:hover) {
+    filter: brightness(90%) opacity(70%);
+    scale: 0.95;
+  }
 }
 
 @keyframes bottom_top {
@@ -290,7 +304,8 @@ body:has(.nav-container.open) .content-grid {
 }
 
 @media (max-width: 600px) {
-  .text-container, .h1 {
+  .text-container,
+  .h1 {
     justify-self: center;
   }
   .tags {
@@ -334,7 +349,7 @@ body:has(.nav-container.open) .content-grid {
     transition: opacity 0.2s;
     opacity: 1;
   }
-  
+
   body:has(.nav-container.open) .img {
     opacity: 0;
   }

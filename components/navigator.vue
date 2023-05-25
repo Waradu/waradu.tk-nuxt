@@ -17,7 +17,23 @@
       <div class="nav-icon material-symbols-rounded">mail</div>
     </div>
     <div class="tabs">
-      <div class="tab">a</div>
+      <div class="tab">
+        <div class="tab-title">About Me</div>
+        <div class="tab-content">
+          <div class="tab-group">
+            <div class="tab-group-title">Skills</div>
+            <div class="tab-group-text"></div>
+          </div>
+          <div class="tab-group">
+            <div class="tab-group-title">Freizeit</div>
+            <div class="tab-group-text"></div>
+          </div>
+          <div class="tab-group">
+            <div class="tab-group-title"></div>
+            <div class="tab-group-text"></div>
+          </div>
+        </div>
+      </div>
       <div class="tab">b</div>
       <div class="tab">c</div>
       <div class="tab">d</div>

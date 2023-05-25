@@ -40,6 +40,7 @@ a {
   padding-top: 5px;
   user-select: none;
   transition: height 0.3s ease-in-out, grid-template-rows .3s ease-in-out;
+  animation: scale_reverse .5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(2.5s) 1 both;
 
   .top-arrow {
     font-family: "Material Symbols Rounded" !important;
@@ -100,6 +101,17 @@ a {
       width: calc(100% + 10px);
       height: 100%;
     }
+  }
+}
+
+@keyframes scale_reverse {
+  from {
+    scale: 2;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
   }
 }
 
