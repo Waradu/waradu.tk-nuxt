@@ -1,15 +1,7 @@
 <template>
   <svg
-    class="border shadow-md"
+    class="bg"
     viewBox="0 0 540.32 540.32"
-    style="
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    "
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="none"
   >
@@ -124,7 +116,7 @@
       ></path>
     </g>
   </svg>
-  <div class="test">
+  <div class="content-grid">
     <img
       src="~/assets/images/wrdu.png"
       alt=""
