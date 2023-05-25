@@ -48,6 +48,7 @@ body {
 }
 
 .img {
+  animation: scale .5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(2s) 1 both;
   z-index: 1;
   width: 150px;
   grid-column: 1 / 2;
@@ -98,6 +99,7 @@ body {
   font-family: genshin;
   color: var(--t);
   transition: 0.2s;
+  animation: scale .5s cubic-bezier(0, 0.43, 0.39, 2) calc(2s + var(--delay)) 1 both;
 }
 
 .th:hover {
@@ -129,6 +131,7 @@ body {
   font-weight: 300;
   font-family: "Inter", sans-serif;
   color: var(--tx);
+  animation: fade_in .5s cubic-bezier(0, 0.43, 0.39, 2) calc(2.3s + var(--delay)) 1 both;
 }
 
 .icons {
@@ -207,6 +210,7 @@ body {
 }
 
 .tags {
+  margin-top: 5px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -215,6 +219,7 @@ body {
 }
 
 .tag {
+  position: relative;
   display: block;
   font-family: smallCaps;
   font-size: 18px !important;
@@ -230,6 +235,38 @@ body {
   color: var(--tx);
   user-select: none;
   cursor: pointer;
+  animation: bottom_top .5s cubic-bezier(0, 0.43, 0.39, 2) calc(2.8s + var(--delay)) 1 both;
+}
+
+@keyframes bottom_top {
+  from {
+    translate: 0 20px;
+    opacity: 0;
+  }
+  to {
+    translate: 0 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from {
+    scale: 0;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes fade_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .center > div {
