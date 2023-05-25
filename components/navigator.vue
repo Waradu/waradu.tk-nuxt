@@ -9,12 +9,12 @@
     </div>
     <input type="text" class="search-bar" id="search-bar" />
     <div class="quick-actions">
-      <div class="nav-icon">A</div>
-      <div class="nav-icon">B</div>
-      <div class="nav-icon">C</div>
-      <div class="nav-icon">D</div>
-      <div class="nav-icon">E</div>
-      <div class="nav-icon">F</div>
+      <div class="nav-icon material-symbols-rounded active">person</div>
+      <div class="nav-icon material-symbols-rounded">code</div>
+      <div class="nav-icon material-symbols-rounded">handshake</div>
+      <div class="nav-icon material-symbols-rounded">favorite</div>
+      <div class="nav-icon material-symbols-rounded">link</div>
+      <div class="nav-icon material-symbols-rounded">mail</div>
     </div>
     <div class="tabs">
       <div class="tab">a</div>
