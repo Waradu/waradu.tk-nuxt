@@ -28,12 +28,14 @@ a {
   font-size: 30px !important;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: var(--bg);
-  overflow: hidden;
   display: grid;
   place-items: center;
-  height: 100vh;
   user-select: none;
   color: var(--txb);
 }
