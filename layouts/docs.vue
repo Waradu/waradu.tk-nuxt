@@ -1,27 +1,53 @@
 <template>
-  <div class="custom-element-example">
-    <div class="title">
-      {{ exampleTitle }}
+  <div class="container">
+    <nuxt-link :to="getParentPath()" class="back-link">
+      <span class="material-symbols-rounded icon">arrow_back</span
+      ><span class="back-link-text">Zurück</span>
+    </nuxt-link>
+    <div class="header" :id="page.title_id">
+      <span class="title">{{ page.title }}</span><br />
+      <span class="desc">{{ page.description }}</span>
     </div>
-    <div class="page-content">
-      <slot />
-    </div>
+    <hr />
+    <DocsContent :data="page.components" />
   </div>
 </template>
 
 <script lang="ts">
 export default {
   props: {
-    title: {
-      type: String,
-      default: null,
+    data: {
+      type: Object,
+      default: {},
     },
   },
   computed: {
-    exampleTitle() {
-      return this.title || "Default Title";
+    page(): Object {
+      return this.data;
+    },
+    isRootRoute() {
+      return this.$route.path === "/";
+    },
+  },
+  methods: {
+    getParentPath() {
+      if (this.isRootRoute) {
+        return "/";
+      } else {
+        const parentPath = this.$route.path.split("/").slice(0, -1).join("/");
+        return parentPath;
+      }
     },
   },
   mounted() {},
 };
+useHead({
+  title: "Docs",
+  link: [{ rel: "icon", type: "image/x-icon", href: "./docs.ico" }],
+});
 </script>
+
+<style>
+@import url("~/assets/css/docs.scss");
+@import url("~/assets/global.css");
+</style>

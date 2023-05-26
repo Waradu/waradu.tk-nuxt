@@ -21,10 +21,6 @@ export default {
     console.log(this.sites)
   },
 };
-useHead({
-  title: "Docs",
-  link: [{ rel: "icon", type: "image/x-icon", href: "./docs.ico" }],
-});
 </script>
 
 <style>

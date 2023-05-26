@@ -7,7 +7,20 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "pnpm-lock.yaml": true,
-    ".npmrc": true
+    ".npmrc": true,
+    ".gitignore": true,
+    "package.json": true,
+    ".vscode": true,
+    "tsconfig.json": true,
+    "server": true,
+    "package-lock.json": true
   },
-  "hide-files.files": []
+  "hide-files.files": [
+    ".gitignore",
+    "package.json",
+    ".vscode",
+    "tsconfig.json",
+    "server",
+    "package-lock.json"
+  ]
 }
