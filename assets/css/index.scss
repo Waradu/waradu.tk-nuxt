@@ -66,17 +66,15 @@ body {
   justify-self: flex-start;
   cursor: pointer;
   color: var(--t);
-
-  font-family: Inter;
-
+  font-family: waradu;
   display: flex;
   align-self: end;
+  font-size: 60px;
+  animation: scale 0.5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(2.2s) 1 both;
+}
+
+.h1::first-letter {
   font-size: 70px;
-  font-weight: 700;
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  line-height: 70px;
-  transition: 0.1s;
 }
 
 .text-container {
@@ -177,15 +175,13 @@ body {
 
 .tag {
   position: relative;
-  display: block;
+  place-items: center;
   font-family: smallCaps;
   font-variant: small-caps;
+  line-height: 22px;
   font-size: 16px !important;
   letter-spacing: 1px;
-  padding: 3px;
-  padding-top: 0.5px;
   height: 28px;
-  padding-right: 7px;
   padding-inline: 8px;
   width: max-content;
   background-color: var(--fg);
@@ -197,20 +193,10 @@ body {
   transition: 0.2s;
   animation: bottom_top 0.5s cubic-bezier(0, 0.43, 0.39, 2)
     calc(2.8s + var(--delay)) 1 both;
-
-  div {
-    line-height: 2px;
-  }
 }
-.tags:hover {
-  .tag:hover {
-    filter: brightness(120%);
-    scale: 1.05;
-  }
-  .tag:not(:hover) {
-    filter: brightness(90%) opacity(70%);
-    scale: 0.95;
-  }
+.tag > div {
+  line-height: 16px;
+  color: var(--tx);
 }
 
 @keyframes bottom_top {

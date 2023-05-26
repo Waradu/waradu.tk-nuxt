@@ -20,6 +20,11 @@
 }
 
 @font-face {
+  font-family: waradu;
+  src: url("~/assets/fonts/waradu.ttf");
+}
+
+@font-face {
   font-family: Inter;
   src: url("~/assets/fonts/Inter-Regular.woff2");
 }

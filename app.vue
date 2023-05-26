@@ -29,6 +29,9 @@
   50% {
     opacity: 1;
   }
+  80% {
+    display: none;
+  }
   100% {
     opacity: 0;
     display: none;

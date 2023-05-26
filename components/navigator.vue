@@ -9,12 +9,42 @@
     </div>
     <input type="text" class="search-bar" id="search-bar" />
     <div class="quick-actions">
-      <div class="nav-icon material-symbols-rounded active">person</div>
-      <div class="nav-icon material-symbols-rounded">code</div>
-      <div class="nav-icon material-symbols-rounded">handshake</div>
-      <div class="nav-icon material-symbols-rounded">favorite</div>
-      <div class="nav-icon material-symbols-rounded">link</div>
-      <div class="nav-icon material-symbols-rounded">mail</div>
+      <div
+        class="nav-icon material-symbols-rounded"
+        :class="{ active: tabIndex == 0 }"
+      >
+        person
+      </div>
+      <div
+        class="nav-icon material-symbols-rounded"
+        :class="{ active: tabIndex == 1 }"
+      >
+        code
+      </div>
+      <div
+        class="nav-icon material-symbols-rounded"
+        :class="{ active: tabIndex == 2 }"
+      >
+        handshake
+      </div>
+      <div
+        class="nav-icon material-symbols-rounded"
+        :class="{ active: tabIndex == 3 }"
+      >
+        favorite
+      </div>
+      <div
+        class="nav-icon material-symbols-rounded"
+        :class="{ active: tabIndex == 4 }"
+      >
+        link
+      </div>
+      <div
+        class="nav-icon material-symbols-rounded"
+        :class="{ active: tabIndex == 5 }"
+      >
+        mail
+      </div>
     </div>
     <div class="tabs">
       <div class="tab">
@@ -55,6 +85,7 @@ export default {
       startY: 0,
       clicking: false,
       animate: true,
+      tabIndex: 0,
     };
   },
   mounted() {
@@ -76,24 +107,23 @@ export default {
         this.clicking = false;
       });
 
-      var main = this
+      var main = this;
 
       document.addEventListener("mousedown", (event) => {
         var navContainer = document.querySelector(".nav-container");
         var clickedElement = event.target;
         // @ts-ignore
         if (!navContainer.contains(clickedElement) && main.isNavbarOpen) {
-          main.toggleNavbar()
+          main.toggleNavbar();
         }
       });
 
-
       document.addEventListener("keydown", function (event) {
         if (event.ctrlKey && event.code === "Space") {
-          main.toggleNavbar()
+          main.toggleNavbar();
           if (main.isNavbarOpen) {
             // @ts-ignore
-            document.getElementById("search-bar").focus()
+            document.getElementById("search-bar").focus();
           }
         }
       });
@@ -110,6 +140,23 @@ export default {
             this.clicking = false;
           }
         }
+      });
+
+      var nav_icons = document.querySelectorAll(".nav-icon");
+
+      nav_icons.forEach((nav_icon) => {
+        nav_icon.addEventListener("click", (event) => {
+          this.isNavbarOpen = true;
+          this.animate = false;
+          console.log(event.target)
+          var parent = event.target.parentNode;
+          var index = Array.prototype.indexOf.call(parent.children, event.target);
+          this.tabIndex = index
+          var tabs = document.querySelectorAll(".tab");
+          tabs.forEach((tab) => {
+            tab.style.marginLeft = "-"+(tab.offsetWidth*index)+"px"
+          })
+        });
       });
     },
     toggleNavbar() {
