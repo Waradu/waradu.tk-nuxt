@@ -1,0 +1,4 @@
+<template>
+  Lol
+  <slot />
+</template>

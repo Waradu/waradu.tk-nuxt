@@ -49,7 +49,7 @@ body {
 }
 
 .img {
-  animation: scale 0.5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(2s) 1 both;
+  animation: scale 0.5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(0s) 1 both;
   z-index: 1;
   width: 150px;
   grid-column: 1 / 2;
@@ -70,7 +70,7 @@ body {
   display: flex;
   align-self: end;
   font-size: 60px;
-  animation: scale 0.5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(2.2s) 1 both;
+  animation: scale 0.5s cubic-bezier(0, 0.43, 0.39, 1.5) calc(.2s) 1 both;
 }
 
 .h1::first-letter {
@@ -192,7 +192,7 @@ body {
   cursor: pointer;
   transition: 0.2s;
   animation: bottom_top 0.5s cubic-bezier(0, 0.43, 0.39, 2)
-    calc(2.8s + var(--delay)) 1 both;
+    calc(.8s + var(--delay)) 1 both;
 }
 .tag > div {
   line-height: 16px;
