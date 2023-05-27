@@ -1,6 +1,6 @@
 <template>
   <div class="list-container">
-    <div v-for="(item, index) in components">
+    <template v-for="(item, index) in components">
       <div
         class="draggable-item"
         :draggable="true"
@@ -12,13 +12,19 @@
         <div class="di-inside">
           <div v-if="index === dropIndex" class="drop-indicator"></div>
           <div class="component-type">{{ item.type }}</div>
-          <div class="component-text">
-            <div class="edit-text" >Edit:</div>
+          
+          <div class="component-text" v-if="item.type == 'text'">
+            <div class="edit-text" >Text:</div>
             <input class="text-input" type="text" v-model="item.text" />
+          </div>
+
+          <div class="component-text" v-if="item.type == 'img'">
+            <div class="edit-text" >Src:</div>
+            <input class="text-input" type="text" v-model="item.src" />
           </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 

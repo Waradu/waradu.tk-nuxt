@@ -13,15 +13,18 @@
       <List :data="previewData" />
     </div>
     <div class="build-footer">
-      <button v-on:click="addText">Add</button>
+      <button class="add" v-on:click="addEle(Elements.text)">New Text</button>
+      <button class="add" v-on:click="addEle(Elements.img)">New Img</button>
+      <button class="add" v-on:click="addEle(Elements.space)">New Space</button>
+      <button class="add" v-on:click="addEle(Elements.list)">New List</button>
+      <button class="clear" @click="clear">Clear</button>
+      <button class="download" @click="downloadData">Copy</button>
     </div>
   </div>
   <div class="preview">
     <NuxtLayout name="docs" :data="previewData" />
     <div class="previewText">Preview:</div>
   </div>
-  <button class="clear" @click="clear">Clear</button>
-  <button class="download" @click="downloadData">Copy</button>
   <img class="w-img" src="~/assets/images/wrdu.png" />
 </template>
 
@@ -52,7 +55,36 @@ export default {
         };
       }
     }
+    class Elements {
+        static get img() {
+          return {
+            type: "img",
+            src: ``,
+          };
+        }
+
+        static get space() {
+          return {
+            type: "space",
+          };
+        }
+
+        static get text() {
+          return {
+            type: "text",
+            text: `NEW TEXT`,
+          };
+        }
+
+        static get list() {
+          return {
+            type: "list",
+            items: [],
+          };
+        }
+      }
     return {
+      Elements: Elements,
       data: {
         title: `Template`,
         description: `Template default decription`,
@@ -126,35 +158,8 @@ export default {
       this.data.title = `Template`;
       this.data.description = `Template default decription`;
     },
-    addText() {
-      class Types {
-        static get img() {
-          return "img";
-        }
-
-        static get space() {
-          return "space";
-        }
-
-        static get text() {
-          return "text";
-        }
-
-        static get list() {
-          return "list";
-        }
-
-        static get item() {
-          return {
-            normal: "normal list",
-            marked: "marked list",
-          };
-        }
-      }
-      this.data.components.push({
-        type: Types.text,
-        text: `NEW TEXT`,
-      });
+    addEle(type) {
+      this.data.components.push(type);
     },
   },
 };
