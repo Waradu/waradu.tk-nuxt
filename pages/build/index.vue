@@ -10,11 +10,7 @@
       </div>
     </div>
     <div class="build-content">
-      <draggable v-model="data">
-        <div v-for="item in data.components" :key="item.id">
-          {{ item.text }}
-        </div>
-      </draggable>
+      <List :data="previewData" />
     </div>
     <div class="build-footer">
       <button v-on:click="addText">Add</button>
@@ -30,8 +26,6 @@
 </template>
 
 <script lang="ts">
-import draggable from 'vuedraggable';
-
 export default {
   data() {
     class Types {
@@ -57,8 +51,8 @@ export default {
 
       static get item() {
         return {
-          normal: "normal",
-          marked: "marked",
+          normal: "normal list",
+          marked: "marked list",
         };
       }
     }
@@ -68,9 +62,54 @@ export default {
         description: `Template default decription`,
         back_arrow: false,
         components: [
-          { id: 1, text: "Item 1" },
-          { id: 2, text: "Item 2" },
-          { id: 3, text: "Item 3" },
+          { type: Types.img, src: `home.png` },
+          {
+            type: Types.stack,
+            components: [
+              {
+                type: Types.text,
+                text: `Drücke als erstes beim Dashboard auf <span class="btn-bg">Spende erfassen</span>.`,
+              },
+            ],
+          },
+          { type: Types.space },
+          { type: Types.img, src: `neue-spende.png` },
+          {
+            type: Types.stack,
+            components: [
+              {
+                type: Types.text,
+                text: `Füge als nächstes die Spende Daten ein.`,
+              },
+              {
+                type: Types.list,
+                items: [
+                  { type: Types.item.normal, text: `Wann gespendet wurde.` },
+                  {
+                    type: Types.item.normal,
+                    text: `Wie viel gespendet wurde.`,
+                  },
+                  {
+                    type: Types.item.normal,
+                    text: `Wer gespendet hat (Es werden automatisch Personen vorgeschlagen).`,
+                  },
+                  {
+                    type: Types.item.marked,
+                    text: `Um eine neue Person hinzuzufügen klicke auf "<span class="blue-text">Neue Spender/in erfassen</span>" und fülle die entsprechenden Daten der Person ein.`,
+                  },
+                  {
+                    type: Types.item.normal,
+                    text: `Von wo/Wegen was gespendet wurde.`,
+                  },
+                  { type: Types.item.normal, text: `Für was gespendet wurde.` },
+                ],
+              },
+              {
+                type: Types.text,
+                text: `Klicke anschliessend auf <span class="btn-blue">Spende erstellen</span>.`,
+              },
+            ],
+          },
         ],
       },
     };
@@ -124,8 +163,8 @@ export default {
 
         static get item() {
           return {
-            normal: "normal",
-            marked: "marked",
+            normal: "normal list",
+            marked: "marked list",
           };
         }
       }

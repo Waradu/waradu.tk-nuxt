@@ -46,8 +46,8 @@ export default {
 
         static get item() {
           return {
-            normal: "normal",
-            marked: "marked",
+            normal: "normal list",
+            marked: "marked list",
           };
         }
       }
