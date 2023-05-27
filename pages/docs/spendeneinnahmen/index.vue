@@ -7,18 +7,8 @@
 export default {
   data() {
     return {
-      sites: [{ text: "Spendeneinnahmen", icon: "segment", link: this.getFullPath("erfassen") }, { text: "Spendeneinnahmen", icon: "segment", link: this.getFullPath("erfassen") }]
+      sites: [{ text: "Spendeneinnahmen", icon: "segment", link: "spenden-erfassen" }, { text: "Spendeneinnahmen", icon: "segment", link: "spenden-erfassen" }]
     };
-  },
-  methods: {
-    getFullPath(relativePath: string) {
-      const parentPath = this.$route.path;
-      const fullPath = parentPath + '/' + relativePath;
-      return fullPath;
-    }
-  },
-  mounted() {
-    console.log(this.sites)
   },
 };
 useHead({

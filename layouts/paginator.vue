@@ -28,6 +28,7 @@ export default {
   methods: {
     getFullPath(relativePath: string) {
       const parentPath = this.$route.path;
+      console.log(parentPath, relativePath)
       const fullPath = parentPath + '/' + relativePath;
       return fullPath;
     }

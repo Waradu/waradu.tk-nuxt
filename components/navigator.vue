@@ -148,7 +148,6 @@ export default {
         nav_icon.addEventListener("click", (event) => {
           this.isNavbarOpen = true;
           this.animate = false;
-          console.log(event.target)
           var parent = event.target.parentNode;
           var index = Array.prototype.indexOf.call(parent.children, event.target);
           this.tabIndex = index
