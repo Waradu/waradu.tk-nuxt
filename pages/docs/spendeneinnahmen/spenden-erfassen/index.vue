@@ -37,7 +37,6 @@ export default {
       data: {
         title: `Spende Erfassen`,
         description: `Teile eingehende Spenden unter Personen, Projekte und Kampagnen auf.`,
-        title_id: `spende-erfassen`,
         back_arrow: true,
         components: [
           { type: Types.img, src: `home.png` },

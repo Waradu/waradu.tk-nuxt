@@ -18,6 +18,10 @@ export default {
   methods: {
     calc(content: Object) {
       var inner = "";
+      var fullPath = this.$route.path
+      fullPath += fullPath.endsWith("/") ? "" : "/";
+      var path = fullPath.split("/").slice(-2)
+      fullPath = path[path.length-2]
 
       class Types {
         static get img() {
@@ -50,7 +54,7 @@ export default {
 
       class Templates {
         static img(src: String) {
-          return `<img src="/_nuxt/assets/images/${src}" alt="image couldn't load" class="image" loading="lazy">`;
+          return `<img src="/_nuxt/assets/images/${fullPath}/${src}" alt="image couldn't load" class="image" loading="lazy">`;
         }
 
         static text(text: String) {
@@ -97,9 +101,6 @@ export default {
       });
 
       return inner;
-    },
-    getAssetPath(src: String) {
-      return `~/assets/images/${src}`;
     },
   },
 };
