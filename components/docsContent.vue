@@ -1,7 +1,11 @@
 <template>
   <div class="generated-content">
-      <div v-for="item in generatedItems" :key="item" v-html="item"></div>
-    </div>
+    <template v-for="(component) in getData">
+      <span v-if="component.type === 'text'" class="text" v-html="component.text"></span>
+      <div v-if="component.type === 'space'" class="space"></div>
+      <img v-if="component.type === 'img'" alt="image couldn't load" class="image" loading="lazy" :src="getImageSrc(component.src)" />
+    </template>
+  </div>
 </template>
 
 <script lang="ts">
@@ -16,14 +20,9 @@ export default {
     page(): Object {
       return this.calc(this.data);
     },
-  },
-  data() {
-    return {
-      generatedItems: []
-    };
-  },
-  mounted() {
-    this.calc(this.data);
+    getData(): Object {
+      return this.data;
+    },
   },
   methods: {
     calc(content: Object) {
@@ -60,7 +59,8 @@ export default {
 
       class Templates {
         static img(src: String) {
-          return `<img src="/_nuxt/assets/images/${fullPath}/${src}" alt="image couldn't load" class="image" loading="lazy">`;
+          require(`~/assets/images/${fullPath}/${src}`)
+          return `<img src="~/assets/images/${fullPath}/${src}" alt="image couldn't load" class="image" loading="lazy">`;
         }
 
         static text(text: String) {
@@ -86,9 +86,8 @@ export default {
 
       this.data.forEach((component) => {
         if (component.type == Types.img) {
-        const imgHtml = Templates.img(component.src);
-        this.generatedItems.push(imgHtml);
-      } else if (component.type == Types.space) {
+          inner += Templates.img(component.src);
+        } else if (component.type == Types.space) {
           inner += Templates.space();
         } else if (component.type == Types.text) {
           inner += Templates.text(component.text);
@@ -98,6 +97,13 @@ export default {
       });
 
       return inner;
+    },
+    getImageSrc(src) {
+      var fullPath = this.$route.path;
+      fullPath += fullPath.endsWith("/") ? "" : "/";
+      var path = fullPath.split("/").slice(-2);
+      fullPath = path[path.length - 2];
+      return `/images/${fullPath}/${src}`;
     },
   },
 };
