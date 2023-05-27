@@ -19,7 +19,9 @@
   font-family: "Inter", sans-serif;
 }
 
-body, html, #__nuxt {
+body,
+html,
+#__nuxt {
   background-color: var(--bg);
   display: grid;
   place-items: center;
@@ -67,25 +69,31 @@ body, html, #__nuxt {
   width: clamp(200px, 100%, 820px);
   padding-top: 80px;
   padding-bottom: 80px;
+  color: var(--tx);
+  font-size: 18px;
+
+  .generated-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .space {
   margin-inline: 80px;
-  margin-top: 30px;
-  margin-bottom: 20px;
   border-top: 1px solid var(--txs);
 }
 
 hr {
+  margin: 15px;
   border-top: 1px solid var(--txs);
-  margin-top: 15px;
   margin-inline: 0;
-  margin-bottom: 20px;
 }
 
 .header > .title {
   font-size: 40px;
   font-weight: bold;
+  color: #000000;
 }
 
 .header > .desc {
@@ -94,19 +102,8 @@ hr {
   line-height: 30px;
 }
 
-.text-container {
-  color: var(--tx);
-  font-size: 18px;
-}
-
-.text-container > .list {
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.text-container > .list > .list-text {
+.list > .list-text {
   margin-left: 23px;
-  margin-bottom: 5px;
 }
 
 .btn-blue {
@@ -131,27 +128,23 @@ hr {
   white-space: nowrap;
 }
 
-.text-container > .list > .list-text:last-child {
-  margin-bottom: 10px;
-}
-
-.text-container > .list > .list-text > .link {
+.list > .list-text > .link {
   color: var(--link);
   font-size: 18px;
   text-decoration: none;
 }
 
-.text-container > .list > .list-text::marker {
+.list > .list-text::marker {
   color: var(--txs);
 }
 
-.text-container > .list > .star {
+.list > .star {
   margin-left: 40px;
   padding-left: 7px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
-.text-container > .list > .star::marker {
+.list > .star::marker {
   content: "✳";
   font-size: 20px;
 }
@@ -160,7 +153,6 @@ hr {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0px 0px 10px var(--shadow);
-  margin-bottom: 20px;
   margin-inline: 0px;
 }
 
@@ -169,8 +161,6 @@ hr {
 }
 
 .text:has(.btn-blue) {
-  margin-top: 3px;
-  margin-bottom: 3px;
   display: block;
 }
 
@@ -213,16 +203,24 @@ hr {
     font-size: 18px;
   }
 
-  .text-container {
+  .container {
     font-size: 16px;
+  }
+
+  .generated-content {
+    gap: 10px !important;
+  }
+
+  .text,
+  .list {
     padding-inline: 8px;
   }
 
-  .text-container > .list > .list-text > .link {
+  .list > .list-text > .link {
     font-size: 16px;
   }
 
-  .text-container > .list > .star::marker {
+  .list > .star::marker {
     font-size: 18px;
   }
 

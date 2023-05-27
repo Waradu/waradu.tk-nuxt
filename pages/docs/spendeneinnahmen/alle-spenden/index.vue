@@ -7,11 +7,7 @@ export default {
   data() {
     class Types {
       static get img() {
-        return "normal";
-      }
-
-      static get stack() {
-        return "stack";
+        return "img";
       }
 
       static get space() {
@@ -19,7 +15,7 @@ export default {
       }
 
       static get text() {
-        return "stack";
+        return "text";
       }
 
       static get list() {
@@ -40,7 +36,7 @@ export default {
         back_arrow: true,
         components: [
           { type: Types.img, src: `home.png` },
-          { type: Types.stack, components: [{ type: Types.text, text: `Drücke als erstes beim Dashboard auf <span class="btn-bg">Spende erfassen</span>.` }] }
+          { type: Types.text, text: `Drücke als erstes beim Dashboard auf <span class="btn-bg">Spende erfassen</span>.` }
         ],
       },
     };

@@ -1,6 +1,6 @@
 <template>
   <div class="list-container">
-    <div v-for="(item, index) in components" :key="item.id">
+    <div v-for="(item, index) in components">
       <div
         class="draggable-item"
         :draggable="true"
@@ -9,9 +9,14 @@
         @dragenter="dragEnter(index)"
         @drop="drop(index)"
       >
-        <div v-if="index === dropIndex" class="drop-indicator"></div>
-        <div class="component-type">{{ item.type }}</div>
-        {{ item.text }}
+        <div class="di-inside">
+          <div v-if="index === dropIndex" class="drop-indicator"></div>
+          <div class="component-type">{{ item.type }}</div>
+          <div class="component-text">
+            <div class="edit-text" >Edit:</div>
+            <input class="text-input" type="text" v-model="item.text" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -55,31 +60,7 @@ export default {
 };
 </script>
 
-<style scoped>
-.list-container {
-  display: grid;
-  place-items: center;
-}
-.draggable-item {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-left: 4px solid black;
-  cursor: grab;
-  border-radius: 0px 12px 12px 0px;
-  width: 500px;
-  position: relative; /* Added */
-}
-.drop-indicator {
-  position: absolute;
-  top: -5px;
-  left: -10px;
-  width: calc(100% + 15px);
-  height: calc(100% + 10px); /* Updated: Set height to 100% */
-  border-radius: 4px 14px 14px 4px;
-  background-color: #ff666650;
-  z-index: 0;
-  opacity: 0.5;
-  pointer-events: none;
-}
+<style scoped lang="scss">
+@import url("~/assets/css/list.scss");
+@import url("~/assets/global.css");
 </style>

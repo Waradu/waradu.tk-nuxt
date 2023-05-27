@@ -75,9 +75,14 @@
   width: 100%;
   height: 100%;
   padding: 30px;
+  overflow: auto;
 }
 
 .build-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--bg);
   display: grid;
   place-items: center;
   padding-inline: calc(calc(calc(100% - 600px) / 2) - 40px);
@@ -105,6 +110,10 @@
 }
 
 .build-footer {
+  z-index: 1;
+  position: sticky;
+  bottom: 0;
+  background-color: var(--bg);
   display: grid;
   place-items: center;
   width: 100%;
@@ -140,7 +149,6 @@
 }
 
 .draggable-item {
-  margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   cursor: grab;

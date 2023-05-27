@@ -1,5 +1,5 @@
 <template>
-  <div v-html="page"></div>
+  <div class="generated-content" v-html="page"></div>
 </template>
 
 <script lang="ts">
@@ -18,18 +18,14 @@ export default {
   methods: {
     calc(content: Object) {
       var inner = "";
-      var fullPath = this.$route.path
+      var fullPath = this.$route.path;
       fullPath += fullPath.endsWith("/") ? "" : "/";
-      var path = fullPath.split("/").slice(-2)
-      fullPath = path[path.length-2]
+      var path = fullPath.split("/").slice(-2);
+      fullPath = path[path.length - 2];
 
       class Types {
         static get img() {
-          return "normal";
-        }
-
-        static get stack() {
-          return "stack";
+          return "img";
         }
 
         static get space() {
@@ -37,7 +33,7 @@ export default {
         }
 
         static get text() {
-          return "stack";
+          return "text";
         }
 
         static get list() {
@@ -76,27 +72,17 @@ export default {
           });
           return `<ol class="list">${list_content}</ol>`;
         }
-
-        static stack(stack: Array<{}>) {
-          var stack_content = "";
-          stack.forEach((stack_component) => {
-            if (stack_component.type == Types.text) {
-              stack_content += Templates.text(stack_component.text);
-            } else if (stack_component.type == Types.list) {
-              stack_content += Templates.list(stack_component.items);
-            }
-          });
-          return `<div class="text-container">${stack_content}</div>`;
-        }
       }
 
       this.data.forEach((component) => {
         if (component.type == Types.img) {
           inner += Templates.img(component.src);
-        } else if (component.type == Types.stack) {
-          inner += Templates.stack(component.components);
         } else if (component.type == Types.space) {
           inner += Templates.space();
+        } else if (component.type == Types.text) {
+          inner += Templates.text(component.text);
+        } else if (component.type == Types.list) {
+          inner += Templates.list(component.items);
         }
       });
 
