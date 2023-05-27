@@ -1,4 +1,0 @@
-<template>
-  Lol
-  <slot />
-</template>
