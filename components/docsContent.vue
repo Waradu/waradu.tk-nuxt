@@ -29,7 +29,7 @@ export default {
         }
 
         static get space() {
-          return "stack";
+          return "space";
         }
 
         static get text() {
@@ -37,6 +37,10 @@ export default {
         }
 
         static get list() {
+          return "list";
+        }
+
+        static get item() {
           return {
             normal: "normal",
             marked: "marked",
@@ -46,22 +50,49 @@ export default {
 
       class Templates {
         static img(src: String) {
-          return `<img src="/_nuxt/assets/images/home.png" alt="image couldn't load" class="image" loading="lazy">`;
+          return `<img src="/_nuxt/assets/images/${src}" alt="image couldn't load" class="image" loading="lazy">`;
+        }
+
+        static text(text: String) {
+          return `<span class="text">${text}</span>`;
+        }
+
+        static space() {
+          return `<div class="space"></div>`;
+        }
+
+        static list(items: Array<{}>) {
+          var list_content = "";
+          items.forEach((item) => {
+            if (item.type == Types.item.normal) {
+              list_content += `<li class="list-text">${item.text}</li>`;
+            } else if (item.type == Types.item.marked) {
+              list_content += `<li class="list-text star">${item.text}</li>`;
+            }
+          });
+          return `<ol class="list">${list_content}</ol>`;
         }
 
         static stack(stack: Array<{}>) {
+          var stack_content = "";
           stack.forEach((stack_component) => {
             if (stack_component.type == Types.text) {
-              inner += Templates.img(stack_component.src);
+              stack_content += Templates.text(stack_component.text);
+            } else if (stack_component.type == Types.list) {
+              stack_content += Templates.list(stack_component.items);
             }
           });
-          return `<img src="/_nuxt/assets/images/home.png" alt="image couldn't load" class="image" loading="lazy">`;
+          return `<div class="text-container">${stack_content}</div>`;
         }
       }
 
       this.data.forEach((component) => {
         if (component.type == Types.img) {
           inner += Templates.img(component.src);
+        } else if (component.type == Types.stack) {
+          inner += Templates.stack(component.components);
+        } else if (component.type == Types.space) {
+          inner += Templates.space();
         }
       });
 

@@ -14,10 +14,28 @@ export default {
           na: false,
         },
         {
-          text: "Spendeneinnahmen",
-          icon: "segment",
+          text: "Kampagne",
+          icon: "home",
           link: "spendeneinnahmen",
-          na: false,
+          na: true,
+        },
+        {
+          text: "Spender",
+          icon: "person",
+          link: "spendeneinnahmen",
+          na: true,
+        },
+        {
+          text: "Patenschaften",
+          icon: "group",
+          link: "spendeneinnahmen",
+          na: true,
+        },
+        {
+          text: "Mehr kommt noch",
+          icon: "more_horiz",
+          link: "spendeneinnahmen",
+          na: true,
         },
       ],
     };

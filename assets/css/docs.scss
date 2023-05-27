@@ -26,27 +26,24 @@ body, html, #__nuxt {
   height: 100%;
   width: 100%;
   color: var(--txb);
-}
-
-html {
-  overflow: scroll;
+  overflow: auto;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 10px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: var(--bg) !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--txs);
+  background: var(--txs) !important;
   border-radius: 1px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--tx);
+  background: var(--tx) !important;
 }
 
 .icon_arrow_back {
@@ -57,6 +54,7 @@ html {
 
 .back-link {
   grid-template-columns: 20px auto;
+  grid-auto-rows: 20px;
   display: grid;
   align-items: center;
   gap: 3px;
@@ -163,6 +161,16 @@ hr {
   box-shadow: 0px 0px 10px var(--shadow);
   margin: 20px;
   margin-inline: 0px;
+}
+
+.text {
+  display: block;
+}
+
+.text:has(.btn-blue) {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  display: block;
 }
 
 .blue-text {

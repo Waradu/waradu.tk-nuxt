@@ -15,7 +15,7 @@ export default {
       }
 
       static get space() {
-        return "stack";
+        return "space";
       }
 
       static get text() {
@@ -23,6 +23,10 @@ export default {
       }
 
       static get list() {
+        return "list";
+      }
+
+      static get item() {
         return {
           normal: "normal",
           marked: "marked",
@@ -31,30 +35,31 @@ export default {
     }
     return {
       data: {
-        title: "TITLE",
-        description: "DESCRIPTION",
-        title_id: "TITLE_ID",
+        title: `Spende Erfassen`,
+        description: `Teile eingehende Spenden unter Personen, Projekte und Kampagnen auf.`,
+        title_id: `spende-erfassen`,
         back_arrow: true,
         components: [
-          { type: Types.img, src: "home.png" },
-          { type: Types.stack, components: [{ type: "text", text: "TEXT" }] },
+          { type: Types.img, src: `home.png` },
+          { type: Types.stack, components: [{ type: Types.text, text: `Drücke als erstes beim Dashboard auf <span class="btn-bg">Spende erfassen</span>.` }] },
           { type: Types.space },
-          { type: Types.img, src: "neue-spende.png" },
+          { type: Types.img, src: `neue-spende.png` },
           {
             type: Types.stack,
             components: [
-              { type: Types.text, text: "TEXT" },
+              { type: Types.text, text: `Füge als nächstes die Spende Daten ein.` },
               {
                 type: Types.list,
                 items: [
-                  { type: Types.list.normal, text: "TEXT" },
-                  { type: Types.list.normal, text: "TEXT" },
-                  { type: Types.list.normal, text: "TEXT" },
-                  { type: Types.list.marked, text: "TEXT" },
-                  { type: Types.list.normal, text: "TEXT" },
-                  { type: Types.list.normal, text: "TEXT" },
+                  { type: Types.item.normal, text: `Wann gespendet wurde.` },
+                  { type: Types.item.normal, text: `Wie viel gespendet wurde.` },
+                  { type: Types.item.normal, text: `Wer gespendet hat (Es werden automatisch Personen vorgeschlagen).` },
+                  { type: Types.item.marked, text: `Um eine neue Person hinzuzufügen klicke auf "<span class="blue-text">Neue Spender/in erfassen</span>" und fülle die entsprechenden Daten der Person ein.` },
+                  { type: Types.item.normal, text: `Von wo/Wegen was gespendet wurde.` },
+                  { type: Types.item.normal, text: `Für was gespendet wurde.` },
                 ],
               },
+              { type: Types.text, text: `Klicke anschliessend auf <span class="btn-blue">Spende erstellen</span>.` }
             ],
           },
         ],
