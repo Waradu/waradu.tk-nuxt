@@ -46,7 +46,7 @@ export default {
 
       class Templates {
         static img(src: String) {
-          return `<img src="~/assets/images/home.png" alt="image couldn't load" class="image" loading="lazy">`;
+          return `<img src="/_nuxt/images/home.png" alt="image couldn't load" class="image" loading="lazy">`;
         }
       }
 

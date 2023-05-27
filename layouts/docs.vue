@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <nuxt-link :to="getParentPath()" class="back-link">
-      <span class="material-symbols-rounded icon">arrow_back</span
+      <span class="material-symbols-rounded icon_arrow_back">arrow_back</span
       ><span class="back-link-text">Zurück</span>
     </nuxt-link>
     <div class="header" :id="page.title_id">
