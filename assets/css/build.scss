@@ -326,3 +326,11 @@
 .hideUI ~ .toggleUI {
   bottom: 70px;
 }
+
+.showPreview ~ .togglePage {
+  bottom: 20px;
+}
+
+.showPreview ~ .toggleUI {
+  bottom: 70px;
+}
