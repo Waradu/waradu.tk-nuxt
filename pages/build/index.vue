@@ -1,5 +1,5 @@
 <template>
-  <div class="builder">
+  <div class="builder" id="builder">
     <div class="build-header">
       <div class="input-container">
         Title: <input class="text-input" type="text" v-model="data.title" />
@@ -13,19 +13,65 @@
       <List :data="previewData" />
     </div>
     <div class="build-footer">
-      <button class="add" v-on:click="addEle(Elements.text)">New Text</button>
-      <button class="add" v-on:click="addEle(Elements.img)">New Img</button>
-      <button class="add" v-on:click="addEle(Elements.space)">New Space</button>
-      <button class="add" v-on:click="addEle(Elements.list)">New List</button>
-      <button class="clear" @click="clear">Clear</button>
-      <button class="download" @click="downloadData">Copy</button>
+      <button
+        class="add material-symbols-rounded"
+        v-on:click="addEle(Elements.text)"
+      >
+        addtext_fields
+      </button>
+      <button
+        class="add material-symbols-rounded"
+        v-on:click="addEle(Elements.img)"
+      >
+        addimage
+      </button>
+      <button
+        class="add material-symbols-rounded"
+        v-on:click="addEle(Elements.list)"
+      >
+        addsort
+      </button>
+      <button
+        class="add material-symbols-rounded"
+        v-on:click="addEle(Elements.space)"
+      >
+        addspace_bar
+      </button>
+      <button
+        class="download material-symbols-rounded greenbtn"
+        @click="downloadData"
+      >
+        content_copy
+      </button>
+      <button class="clear material-symbols-rounded redbtn" @click="openPopup">
+        clear
+      </button>
     </div>
   </div>
   <div class="preview">
     <NuxtLayout name="docs" :data="previewData" />
     <div class="previewText">Preview:</div>
   </div>
-  <img class="w-img" src="~/assets/images/wrdu.png" />
+  <button class="togglePage material-symbols-rounded" @click="togglePage">
+    swap_horiz
+  </button>
+  <button class="toggleUI material-symbols-rounded" @click="toggleUI">
+    fullscreen
+  </button>
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <div class="popup-text">Do you really want to clear EVERYTHING?</div>
+      <button
+        class="cancle material-symbols-rounded redbtn"
+        @click="closePopup"
+      >
+        clear
+      </button>
+      <button class="confirm material-symbols-rounded greenbtn" @click="clear">
+        done
+      </button>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -56,78 +102,43 @@ export default {
       }
     }
     class Elements {
-        static get img() {
-          return {
-            type: "img",
-            src: ``,
-          };
-        }
-
-        static get space() {
-          return {
-            type: "space",
-          };
-        }
-
-        static get text() {
-          return {
-            type: "text",
-            text: `NEW TEXT`,
-          };
-        }
-
-        static get list() {
-          return {
-            type: "list",
-            items: [],
-          };
-        }
+      static get img() {
+        return {
+          type: "img",
+          src: ``,
+        };
       }
+
+      static get space() {
+        return {
+          type: "space",
+        };
+      }
+
+      static get text() {
+        return {
+          type: "text",
+          text: `NEW TEXT`,
+        };
+      }
+
+      static get list() {
+        return {
+          type: "list",
+          items: [],
+        };
+      }
+    }
     return {
       Elements: Elements,
       data: {
         title: `Template`,
-        description: `Template default decription`,
+        description: `Template default description`,
         back_arrow: false,
         components: [
-          { type: Types.img, src: `home.png` },
           {
-            type: Types.text,
-            text: `Drücke als erstes beim Dashboard auf <span class="btn-bg">Spende erfassen</span>.`,
-          },
-          { type: Types.space },
-          { type: Types.img, src: `neue-spende.png` },
-
-          {
-            type: Types.text,
-            text: `Füge als nächstes die Spende Daten ein.`,
-          },
-          {
-            type: Types.list,
-            items: [
-              { type: Types.item.normal, text: `Wann gespendet wurde.` },
-              {
-                type: Types.item.normal,
-                text: `Wie viel gespendet wurde.`,
-              },
-              {
-                type: Types.item.normal,
-                text: `Wer gespendet hat (Es werden automatisch Personen vorgeschlagen).`,
-              },
-              {
-                type: Types.item.marked,
-                text: `Um eine neue Person hinzuzufügen klicke auf "<span class="blue-text">Neue Spender/in erfassen</span>" und fülle die entsprechenden Daten der Person ein.`,
-              },
-              {
-                type: Types.item.normal,
-                text: `Von wo/Wegen was gespendet wurde.`,
-              },
-              { type: Types.item.normal, text: `Für was gespendet wurde.` },
-            ],
-          },
-          {
-            type: Types.text,
-            text: `Klicke anschliessend auf <span class="btn-blue">Spende erstellen</span>.`,
+            type: "text",
+            text: "Empty",
           },
         ],
       },
@@ -139,6 +150,12 @@ export default {
     },
   },
   methods: {
+    togglePage() {
+      document.getElementById("builder").classList.toggle("showPreview");
+    },
+    toggleUI() {
+      document.getElementById("builder").classList.toggle("hideUI");
+    },
     downloadData() {
       this.data.back_arrow = true;
       const jsonData = JSON.stringify(this.data, null, 2);
@@ -154,9 +171,21 @@ export default {
       this.data.back_arrow = false;
     },
     clear() {
-      this.data.components = [];
+      this.data.components = [
+        {
+          type: "text",
+          text: "Empty",
+        },
+      ];
       this.data.title = `Template`;
       this.data.description = `Template default decription`;
+      this.closePopup();
+    },
+    openPopup() {
+      document.getElementById("popup").style.display = "block";
+    },
+    closePopup() {
+      document.getElementById("popup").style.display = "none";
     },
     addEle(type) {
       this.data.components.push(type);
