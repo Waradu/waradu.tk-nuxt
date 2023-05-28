@@ -13,7 +13,10 @@
       <List :data="previewData" />
     </div>
     <div class="build-footer">
-      <button class="themeToggle material-symbols-rounded bluebtn" @click="toggleTheme">
+      <button
+        class="themeToggle material-symbols-rounded bluebtn"
+        @click="toggleTheme"
+      >
         dark_mode
       </button>
       <button
@@ -98,8 +101,16 @@
 </template>
 
 <script lang="ts">
-
 export default {
+  watch: {
+    data: {
+      handler(newData) {
+        // Save the updated data to local storage
+        localStorage.setItem("myData", JSON.stringify(newData));
+      },
+      deep: true, // Enable deep watching to detect nested changes
+    },
+  },
   data() {
     class Types {
       static get img() {
@@ -167,27 +178,32 @@ export default {
         ],
       },
       dataText: "",
-      isReloading: true
+      isReloading: true,
     };
   },
   computed: {
     previewData() {
+      const savedData = localStorage.getItem('myData');
+      if (savedData) {
+        this.data = JSON.parse(savedData);
+      }
       return this.data;
     },
   },
   mounted() {
-    const theme = localStorage.getItem('theme');
+    const theme = localStorage.getItem("theme");
     if (theme) {
-      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute("data-theme", theme);
     }
     this.isReloading = false;
   },
   methods: {
     toggleTheme() {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      const newTheme = isDark ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
+      const isDark =
+        document.documentElement.getAttribute("data-theme") === "dark";
+      const newTheme = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
     },
     togglePage() {
       document.getElementById("builder").classList.toggle("showPreview");
@@ -200,8 +216,7 @@ export default {
       const jsonData = JSON.stringify(this.data, null, 2);
       navigator.clipboard
         .writeText(jsonData)
-        .then(() => {
-        })
+        .then(() => {})
         .catch((error) => {
           console.error("Error copying data to clipboard:", error);
         });
@@ -228,7 +243,7 @@ export default {
     closeImportPopup() {
       document.getElementById("import").style.display = "none";
       const obj = JSON.parse(this.dataText);
-      this.data = obj
+      this.data = obj;
     },
     addEle(type) {
       this.data.components.push(type);
@@ -243,11 +258,11 @@ export default {
               const theme = localStorage.getItem('theme');
               document.documentElement.setAttribute('data-theme', theme || 'light');
             })()
-          `
-        }
-      ]
+          `,
+        },
+      ],
     };
-  }
+  },
 };
 useHead({
   title: "Builder",

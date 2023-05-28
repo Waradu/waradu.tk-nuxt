@@ -314,6 +314,10 @@
   .preview {
     width: 100%;
   }
+
+  .preview {
+    padding: 0;
+  }
   .showPreview {
     z-index: -1 !important;
   }
@@ -361,61 +365,69 @@
 
 @media (max-width: 1720px) {
   hr {
-    margin-top: 5px !important;
-    margin-inline: 8px !important;
+    margin-top: 5px;
+    margin-inline: 8px;
   }
 
   .container {
-    padding-top: 50px !important;
-    padding-bottom: 50px !important;
-    width: 100% !important;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
   }
 
   .space {
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-    margin-inline: 8px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-inline: 38px;
   }
 
   .back-link {
-    margin-left: 8px !important;
+    margin-left: 8px;
   }
 
   .header {
-    padding-inline: 8px !important;
+    padding-inline: 8px;
   }
 
   .header > .title {
-    font-size: 35px !important;
+    font-size: 35px;
   }
 
   .header > .desc {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 
-  .text-container {
-    font-size: 16px !important;
-    padding-inline: 8px !important;
+  .container {
+    font-size: 16px;
   }
 
-  .text-container > .list > .list-text > .link {
-    font-size: 16px !important;
+  .generated-content {
+    gap: 10px !important;
   }
 
-  .text-container > .list > .star::marker {
-    font-size: 18px !important;
+  .text,
+  .list {
+    padding-inline: 8px;
+  }
+
+  .list > .list-text > .link {
+    font-size: 16px;
+  }
+
+  .list > .star::marker {
+    font-size: 18px;
   }
 
   .image {
-    width: 100% !important;
+    width: 100%;
     border-radius: 0px !important;
-    margin: 10px !important;
-    margin-inline: 0px !important;
+    margin: 10px;
+    margin-inline: 0px;
   }
 
   .btn-blue,
   .btn-bg {
-    line-height: 35px !important;
+    line-height: 35px;
   }
 }
 
