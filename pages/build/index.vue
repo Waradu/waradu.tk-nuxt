@@ -54,7 +54,7 @@
       </button>
     </div>
   </div>
-  <div class="preview">
+  <div class="preview" id="preview">
     <NuxtLayout name="docs" :data="previewData" />
     <div class="previewText">Preview:</div>
   </div>
@@ -167,15 +167,10 @@ export default {
     return {
       Elements: Elements,
       data: {
-        title: `Template`,
-        description: `Template default description`,
+        title: ``,
+        description: ``,
         back_arrow: false,
-        components: [
-          {
-            type: "text",
-            text: "Empty",
-          },
-        ],
+        components: [],
       },
       dataText: "",
       isReloading: true,

@@ -1,4 +1,7 @@
 <template>
+  <button class="toggleThemeBtn material-symbols-rounded" @click="toggleTheme">
+    dark_mode
+  </button>
   <ul>
     <li v-if="!(path == '/docs' || path == '/docs/')" class="item back">
       <nuxt-link :to="getParentPath()" class="link">
@@ -36,6 +39,13 @@ export default {
     },
   },
   methods: {
+    toggleTheme() {
+      const isDark =
+        document.documentElement.getAttribute("data-theme") === "dark";
+      const newTheme = isDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    },
     getFullPath(relativePath: string) {
       var parentPath = this.$route.path;
       const slash = parentPath.endsWith("/") ? "" : "/";
@@ -51,7 +61,12 @@ export default {
       }
     },
   },
-  mounted() {},
+  mounted() {
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+  },
 };
 useHead({
   title: "Docs",

@@ -86,7 +86,7 @@
   grid-row: 1 / 3;
   box-shadow: 0 0 5px #00000030;
   border-radius: 2px 6px 6px 2px;
-  overflow: hidden;
+  overflow: visible;
   align-self: start;
 
   .controll {
@@ -97,10 +97,27 @@
     display: grid;
     place-items: center;
     color: var(--txb);
+    transition: .2s;
+    cursor: pointer;
+  }
+  .controll:first-child {
+    border-radius: 2px 6px 0px 0px;
+  }
+  .controll:last-child {
+    border-radius: 0px 0px 6px 2px;
+  }
+  .controll:hover:not([disabled]) {
+    z-index: 1;
+    scale: 1.05;
+    box-shadow: 0 0 5px #00000030;
+  }
+  .controll:active:not([disabled]) {
+    scale: 0.9;
   }
 
   [disabled] {
     color: var(--txs);
+    cursor: not-allowed;
   }
 }
 
