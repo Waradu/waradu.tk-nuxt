@@ -24,7 +24,7 @@ export default {
 
       static get item() {
         return {
-          normal: "normal list",
+          normal: "list item",
           marked: "marked list",
         };
       }
@@ -53,7 +53,7 @@ export default {
                 text: `Wer gespendet hat (Es werden automatisch Personen vorgeschlagen).`,
               },
               {
-                type: Types.item.marked,
+                type: Types.item.normal,
                 text: `Um eine neue Person hinzuzufügen klicke auf "<span class="blue-text">Neue Spender/in erfassen</span>" und fülle die entsprechenden Daten der Person ein.`,
               },
               {

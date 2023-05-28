@@ -3,23 +3,25 @@
     <template v-for="(item, index) in components">
       <div
         class="draggable-item"
+        :class="{ dragging: index === draggedIndex }"
         :draggable="true"
         @dragstart="dragStart(index)"
         @dragover="dragOver(index)"
         @dragenter="dragEnter(index)"
+        @dragend="dragEnd"
         @drop="drop(index)"
       >
         <div class="di-inside">
           <div v-if="index === dropIndex" class="drop-indicator"></div>
           <div class="component-type">
             {{ item.type }}
-            <input
-              v-if="item.type === 'normal list' || item.type === 'marked list'"
+            <!--<input
+              v-if="item.type === 'list item' || item.type === 'marked list'"
               class="check-input"
               type="checkbox"
               :checked="item.type === 'marked list'"
               @change="handleCheckboxChange(index)"
-            />
+            /> -->
           </div>
 
           <div class="component-text" v-if="item.type == 'text'">
@@ -29,7 +31,7 @@
 
           <div
             class="component-text"
-            v-if="item.type == 'normal list' || item.type == 'marked list'"
+            v-if="item.type == 'list item' || item.type == 'marked list'"
           >
             <div class="edit-text">Text:</div>
             <input class="text-input" type="text" v-model="item.text" />
@@ -100,12 +102,12 @@ export default {
   methods: {
     handleCheckboxChange(index) {
       const item = this.components[index];
-      item.type = item.type === 'marked list' ? 'normal list' : 'marked list';
+      item.type = item.type === 'marked list' ? 'list item' : 'marked list';
     },
     addItem(index) {
       this.components[index].items.push(
         {
-          type: "normal list",
+          type: "list item",
           text: "Empty"
         }
       )
@@ -114,18 +116,22 @@ export default {
       this.draggedIndex = index;
     },
     deleteItem(item, index) {
-      if (item.type === 'list') {
+      if (item.type === 'item') {
         item.items.splice(index, 1);
       } else {
         this.components.splice(index, 1);
       }
+    },
+    dragEnd() {
+      this.draggedIndex = null;
+      this.dropIndex = null;
     },
     drop(index) {
       const draggedItem = this.components[this.draggedIndex];
       this.components.splice(this.draggedIndex, 1);
       this.components.splice(index, 0, draggedItem);
       this.draggedIndex = null;
-      this.dropIndex = null; // Reset dropIndex to hide the indicator
+      this.dropIndex = null;
     },
     dragOver(index) {
       event.preventDefault();

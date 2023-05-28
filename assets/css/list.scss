@@ -7,7 +7,7 @@
 
 .di-inside {
   padding: 10px;
-  border-left: 4px solid black;
+  border-left: 4px solid var(--txb);
   border-radius: 0px 12px 12px 0px;
   width: 100%;
   position: relative;
@@ -24,6 +24,7 @@
 .component-type {
   text-transform: capitalize;
   font-weight: 500;
+  color: var(--txb);
 }
 
 .component-type::before {
@@ -47,6 +48,7 @@
   width: clamp(250px, 100%, 800px);
   overflow: visible;
 }
+
 .drop-indicator {
   position: absolute;
   top: -5px;
@@ -60,15 +62,20 @@
   pointer-events: none;
 }
 
+.di-inside:has(.component-text:has(.drop-indicator)) > .drop-indicator {
+  display: none;
+}
+
 .text-input {
   padding: 5px;
   background-color: var(--bg);
   box-shadow: 0 0 10px #00000030;
-  border: 1px solid #00000020;
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding-inline: 6px;
   width: 100%;
   outline: 0;
+  color: var(--txb);
 }
 
 .controlls {
@@ -86,7 +93,7 @@
     width: 100%;
     display: grid;
     place-items: center;
-    color: black;
+    color: var(--txb);
   }
 
   [disabled] {
@@ -107,12 +114,21 @@
 }
 
 .add_to_list {
-  align-self: flex-start;
+  margin-left: 10px;
+  justify-self: flex-start;
   background-color: var(--bg);
   font-size: 20px;
   padding: 5px;
   box-shadow: 0 0 5px #00000030;
   border-radius: 6px;
   width: 40px;
-  color: black;
+  color: var(--txb);
+}
+
+.dragging {
+  filter: brightness(90%);
+}
+
+.dragging:has(.dragging) {
+  filter: none;
 }

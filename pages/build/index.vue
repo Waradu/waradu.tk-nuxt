@@ -13,35 +13,38 @@
       <List :data="previewData" />
     </div>
     <div class="build-footer">
+      <button class="themeToggle material-symbols-rounded bluebtn" @click="toggleTheme">
+        dark_mode
+      </button>
       <button
         class="add material-symbols-rounded"
         v-on:click="addEle(Elements.text)"
       >
-        addtext_fields
+        text_fields
       </button>
       <button
         class="add material-symbols-rounded"
         v-on:click="addEle(Elements.img)"
       >
-        addimage
+        image
       </button>
       <button
         class="add material-symbols-rounded"
         v-on:click="addEle(Elements.list)"
       >
-        addsort
+        sort
       </button>
       <button
         class="add material-symbols-rounded"
         v-on:click="addEle(Elements.space)"
       >
-        addspace_bar
+        space_bar
       </button>
       <button
         class="download material-symbols-rounded greenbtn"
-        @click="downloadData"
+        @click="openImportPopup"
       >
-        content_copy
+        edit
       </button>
       <button class="clear material-symbols-rounded redbtn" @click="openPopup">
         clear
@@ -58,6 +61,9 @@
   <button class="toggleUI material-symbols-rounded" @click="toggleUI">
     fullscreen
   </button>
+  <button class="toggleTheme material-symbols-rounded" @click="toggleTheme">
+    dark_mode
+  </button>
   <div class="popup" id="popup">
     <div class="popup-content">
       <div class="popup-text">Do you really want to clear EVERYTHING?</div>
@@ -72,9 +78,27 @@
       </button>
     </div>
   </div>
+
+  <div class="import" id="import">
+    <div class="import-content">
+      <textarea
+        id="importText"
+        cols="30"
+        rows="10"
+        v-model="dataText"
+      ></textarea>
+      <button
+        class="confirm material-symbols-rounded greenbtn"
+        @click="closeImportPopup"
+      >
+        done
+      </button>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
+
 export default {
   data() {
     class Types {
@@ -96,7 +120,7 @@ export default {
 
       static get item() {
         return {
-          normal: "normal list",
+          normal: "list item",
           marked: "marked list",
         };
       }
@@ -142,6 +166,8 @@ export default {
           },
         ],
       },
+      dataText: "",
+      isReloading: true
     };
   },
   computed: {
@@ -149,7 +175,20 @@ export default {
       return this.data;
     },
   },
+  mounted() {
+    const theme = localStorage.getItem('theme');
+    if (theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    this.isReloading = false;
+  },
   methods: {
+    toggleTheme() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    },
     togglePage() {
       document.getElementById("builder").classList.toggle("showPreview");
     },
@@ -159,11 +198,9 @@ export default {
     downloadData() {
       this.data.back_arrow = true;
       const jsonData = JSON.stringify(this.data, null, 2);
-      console.log(jsonData);
       navigator.clipboard
         .writeText(jsonData)
         .then(() => {
-          console.log("Data copied to clipboard");
         })
         .catch((error) => {
           console.error("Error copying data to clipboard:", error);
@@ -171,14 +208,9 @@ export default {
       this.data.back_arrow = false;
     },
     clear() {
-      this.data.components = [
-        {
-          type: "text",
-          text: "Empty",
-        },
-      ];
-      this.data.title = `Template`;
-      this.data.description = `Template default decription`;
+      this.data.components = [];
+      this.data.title = ``;
+      this.data.description = ``;
       this.closePopup();
     },
     openPopup() {
@@ -187,10 +219,35 @@ export default {
     closePopup() {
       document.getElementById("popup").style.display = "none";
     },
+    openImportPopup() {
+      document.getElementById("import").style.display = "block";
+      this.dataText = JSON.stringify(this.data, null, 2);
+
+      const obj = JSON.parse(jsonString);
+    },
+    closeImportPopup() {
+      document.getElementById("import").style.display = "none";
+      const obj = JSON.parse(this.dataText);
+      this.data = obj
+    },
     addEle(type) {
       this.data.components.push(type);
     },
   },
+  head() {
+    return {
+      script: [
+        {
+          innerHTML: `
+            (function() {
+              const theme = localStorage.getItem('theme');
+              document.documentElement.setAttribute('data-theme', theme || 'light');
+            })()
+          `
+        }
+      ]
+    };
+  }
 };
 useHead({
   title: "Builder",
