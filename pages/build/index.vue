@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>ProDoc</Title>
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+  </Head>
   <div class="builder" id="builder">
     <div class="build-header">
       <div class="input-container">
@@ -105,37 +109,12 @@ export default {
   watch: {
     data: {
       handler(newData) {
-        // Save the updated data to local storage
         localStorage.setItem("myData", JSON.stringify(newData));
       },
-      deep: true, // Enable deep watching to detect nested changes
+      deep: true,
     },
   },
   data() {
-    class Types {
-      static get img() {
-        return "img";
-      }
-
-      static get space() {
-        return "space";
-      }
-
-      static get text() {
-        return "text";
-      }
-
-      static get list() {
-        return "list";
-      }
-
-      static get item() {
-        return {
-          normal: "list item",
-          marked: "marked list",
-        };
-      }
-    }
     class Elements {
       static get img() {
         return {
@@ -178,18 +157,20 @@ export default {
   },
   computed: {
     previewData() {
-      const savedData = localStorage.getItem('myData');
-      if (savedData) {
-        this.data = JSON.parse(savedData);
-      }
       return this.data;
     },
   },
   mounted() {
+    const savedData = localStorage.getItem("myData");
+    if (savedData) {
+      this.data = JSON.parse(savedData);
+    }
+
     const theme = localStorage.getItem("theme");
     if (theme) {
       document.documentElement.setAttribute("data-theme", theme);
     }
+
     this.isReloading = false;
   },
   methods: {
@@ -232,8 +213,6 @@ export default {
     openImportPopup() {
       document.getElementById("import").style.display = "block";
       this.dataText = JSON.stringify(this.data, null, 2);
-
-      const obj = JSON.parse(jsonString);
     },
     closeImportPopup() {
       document.getElementById("import").style.display = "none";
@@ -259,10 +238,6 @@ export default {
     };
   },
 };
-useHead({
-  title: "Builder",
-  link: [{ rel: "icon", type: "image/x-icon", href: "./docs.ico" }],
-});
 </script>
 
 <style scoped>

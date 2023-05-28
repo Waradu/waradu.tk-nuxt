@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     getImageSrc(src) {
-      const validExtensions = ["png", "jpg", "jpeg", "gif"];
+      const validExtensions = ["png", "jpg", "jpeg", "gif", "webp"];
 
       var sub = src.split(".")[src.split(".").length-1]
 

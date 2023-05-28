@@ -68,10 +68,6 @@ export default {
     }
   },
 };
-useHead({
-  title: "Docs",
-  link: [{ rel: "icon", type: "image/x-icon", href: "/docs.ico" }],
-});
 </script>
 
 <style>

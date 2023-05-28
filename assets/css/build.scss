@@ -27,7 +27,7 @@
   padding: 0;
   font-family: "Inter", sans-serif;
   color: var(--tx);
-  transition: background-color .2s, color .2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 ::-webkit-scrollbar {
@@ -81,6 +81,9 @@
   padding: 30px;
   overflow: auto;
   overflow-x: visible;
+  background-image: url(/logoDark.png);
+  background-size: contain;
+  background-position: 50% 50%;
 }
 
 .build-header {
@@ -145,10 +148,10 @@
     border-radius: 8px;
     background-color: var(--bg);
     color: var(--txb);
-    font-size: 20px;
+    font-size: 20px !important;
     width: 40px;
     height: 40px;
-    transition: .2s;
+    transition: 0.2s;
     cursor: pointer;
   }
   *:hover {
@@ -274,7 +277,7 @@
 
     .material-symbols-rounded {
       font-size: 25px;
-      color:var(--txb);
+      color: var(--txb);
     }
   }
 }
@@ -318,7 +321,6 @@
     }
   }
 }
-
 @media (max-width: 900px) {
   .builder,
   .preview {
@@ -331,7 +333,8 @@
   .showPreview {
     z-index: -1 !important;
   }
-  .previewText, .themeToggle {
+  .previewText,
+  .themeToggle {
     display: none;
   }
   .build-content {
@@ -365,7 +368,7 @@
     top: 0;
     left: 0;
     translate: 0 0;
-    
+
     #importText {
       font-size: 16px !important;
       padding: 20px !important;

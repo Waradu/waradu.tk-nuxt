@@ -77,6 +77,10 @@
         </div>
       </div>
     </template>
+    <NuxtLink to="/tutorial" class="getHelp" v-if="data.components == 0">
+      <div class="helpIcon material-symbols-rounded">question_mark</div>
+      <div class="helpText">Need Help</div>
+    </NuxtLink>
   </div>
 </template>
 
