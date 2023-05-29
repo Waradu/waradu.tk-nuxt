@@ -1,5 +1,5 @@
 <template>
-  <div class="font-grid">
+  <a href="/waradu-bold-rounded.ttf" class="font-grid" download="">
     <div class="stars">
       <svg
         class="sparkle"
@@ -30,13 +30,13 @@
         />
       </svg>
     </div>
-    <a href="/waradu-bold-rounded.ttf" class="font-big" download="">W</a>
+    <div class="font-big">W</div>
     <div class="name">Waradu Bold Rounded V1</div>
     <div class="abc">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
     <div class="abc-lower">abcdefghijklmnopqrstuvwxyz</div>
     <div class="special">0123456789</div>
     <div class="arrows material-symbols-rounded">arrow_forward<span class="aa" style="margin-inline: 70px;"></span>arrow_back</div>
-  </div>
+  </a>
 </template>
 
 <style lang="scss">
@@ -67,10 +67,11 @@ body {
 
 body:has(.font-grid:is(:hover, :focus-visible)) {
   --active: 1;
+  background: red !important;
 }
 
 .font-grid {
-  cursor: default;
+  cursor: pointer;
   user-select: none;
   position: relative;
   display: grid;
@@ -128,12 +129,14 @@ body:has(.font-grid:is(:hover, :focus-visible)) {
     letter-spacing: 0px;
     margin-left: 20px;
     cursor: pointer;
+    z-index: 5;
   }
 
   .arrows {
     position: absolute;
     top: 65px;
     font-size: 50px !important;
+    display: none;
   }
 }
 
