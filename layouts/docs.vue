@@ -8,7 +8,8 @@
       ><span class="back-link-text">Zurück</span>
     </nuxt-link>
     <div class="header" :id="page.title.toLowerCase().replace(/\s+/g, '-')">
-      <span class="title">{{ page.title }}</span><br />
+      <span class="title">{{ page.title }}</span
+      ><br />
       <span class="desc">{{ page.description }}</span>
     </div>
     <hr />
@@ -41,11 +42,15 @@ export default {
       localStorage.setItem("theme", newTheme);
     },
     getParentPath() {
-      if (this.isRootRoute) {
-        return "/";
+      if (typeof this.data.back_arrow_link !== "undefined") {
+        return this.data.back_arrow_link
       } else {
-        const parentPath = this.$route.path.split("/").slice(0, -1).join("/");
-        return parentPath;
+        if (this.isRootRoute) {
+          return "/";
+        } else {
+          const parentPath = this.$route.path.split("/").slice(0, -1).join("/");
+          return parentPath;
+        }
       }
     },
   },

@@ -13,7 +13,8 @@ export default {
       data: {
         title: "ProDoc",
         description: "Create your own documentation in ProDoc",
-        back_arrow: false,
+        back_arrow: true,
+        back_arrow_link: "/build",
         components: [
           {
             type: "img",

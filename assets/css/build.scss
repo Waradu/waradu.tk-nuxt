@@ -81,9 +81,9 @@
   padding: 30px;
   overflow: auto;
   overflow-x: visible;
-  background-image: url(/logoDark.png);
+  /* background-image: url(/logoDark.png);
   background-size: contain;
-  background-position: 50% 50%;
+  background-position: 50% 50%; */
 }
 
 .build-header {
@@ -278,6 +278,7 @@
     .material-symbols-rounded {
       font-size: 25px;
       color: var(--txb);
+      cursor: pointer;
     }
   }
 }
@@ -318,6 +319,7 @@
     .material-symbols-rounded {
       font-size: 25px;
       color: var(--txb);
+      cursor: pointer;
     }
   }
 }
