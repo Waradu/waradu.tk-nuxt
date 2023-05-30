@@ -50,7 +50,7 @@ body {
   display: grid;
   place-items: center;
   --active: 0;
-  background: hsl(260 calc(var(--active) * 97%) 6%);
+  background: hsl(260 calc(--active * 97%) 6%);
   transition: background var(--transition);
 }
 
@@ -58,6 +58,7 @@ body {
 *:after,
 *:before {
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 :root {
@@ -67,7 +68,6 @@ body {
 
 body:has(.font-grid:is(:hover, :focus-visible)) {
   --active: 1;
-  background: red !important;
 }
 
 .font-grid {
