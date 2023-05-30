@@ -102,6 +102,8 @@
       </button>
     </div>
   </div>
+
+  <Search />
 </template>
 
 <script lang="ts">
