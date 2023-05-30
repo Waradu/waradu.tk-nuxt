@@ -15,6 +15,8 @@
     <hr />
     <DocsContent :data="page.components" />
   </div>
+
+  <Search />
 </template>
 
 <script lang="ts">
@@ -28,6 +30,9 @@ export default {
   computed: {
     page(): Object {
       return this.data;
+    },
+    showSearchVar(): Object {
+      return this.showSearch;
     },
     isRootRoute() {
       return this.$route.path === "/";
@@ -52,7 +57,7 @@ export default {
           return parentPath;
         }
       }
-    },
+    }
   },
   mounted() {
     const theme = localStorage.getItem("theme");
