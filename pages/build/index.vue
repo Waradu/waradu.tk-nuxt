@@ -242,5 +242,5 @@ export default {
 
 <style scoped>
 @import url("~/assets/css/build.scss");
-@import url("~/assets/global.css");
+@import url("~/assets/global.scss");
 </style>

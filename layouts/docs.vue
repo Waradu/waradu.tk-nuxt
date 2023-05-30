@@ -65,5 +65,5 @@ export default {
 
 <style>
 @import url("~/assets/css/docs.scss");
-@import url("~/assets/global.css");
+@import url("~/assets/global.scss");
 </style>

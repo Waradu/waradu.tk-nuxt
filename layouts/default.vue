@@ -5,7 +5,7 @@
 
 <style>
 @import url("~/assets/css/index.scss");
-@import url("~/assets/global.css");
+@import url("~/assets/global.scss");
 
 :root {
   --bg: #0f0e13;

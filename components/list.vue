@@ -161,5 +161,5 @@ export default {
 
 <style scoped lang="scss">
 @import url("~/assets/css/list.scss");
-@import url("~/assets/global.css");
+@import url("~/assets/global.scss");
 </style>

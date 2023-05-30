@@ -72,5 +72,5 @@ export default {
 
 <style>
 @import url("~/assets/css/paginator.scss");
-@import url("~/assets/global.css");
+@import url("~/assets/global.scss");
 </style>
