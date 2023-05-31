@@ -188,7 +188,6 @@
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  display: grid;
   place-items: center;
   color: var(--txb);
   z-index: 5;
@@ -206,7 +205,6 @@
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  display: grid;
   place-items: center;
   color: var(--txb);
   z-index: 5;
@@ -224,7 +222,6 @@
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  display: grid;
   place-items: center;
   color: var(--txb);
   z-index: 5;
@@ -346,7 +343,7 @@
   .togglePage,
   .toggleUI,
   .toggleTheme {
-    display: block;
+    display: grid !important;
   }
 
   .build-footer {
