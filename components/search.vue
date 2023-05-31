@@ -1,5 +1,5 @@
 <template>
-  <div class="searchContainer" v-if="!showSearch">
+  <div class="searchContainer" v-if="!showSearch" @keydown.esc="hideSearch">
     <div class="searchInside">
       <div
         class="search"
@@ -29,9 +29,19 @@
           >
             <a
               class="resultsLink"
-              v-if="!result.command"
+              v-if="!result.command && !result.newTab"
               :href="result.link"
               @click="selectResult"
+            >
+              <h3 class="resultsTitle">{{ result.title }}</h3>
+              <p class="resultsDesc">{{ result.subTitle }}</p>
+            </a>
+            <a
+              class="resultsLink"
+              v-else-if="!result.command && result.newTab"
+              :href="result.link"
+              @click="selectResult"
+              target="_blank"
             >
               <h3 class="resultsTitle">{{ result.title }}</h3>
               <p class="resultsDesc">{{ result.subTitle }}</p>
@@ -116,23 +126,50 @@
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
+  props: ['showSearch'],
   data() {
     return {
       searchQuery: "",
       searchResults: [
         {
-          title: "TITLE 1",
-          subTitle: "SUBTITLE 1",
-          additionalSearchParameters: "help",
-          link: "LINK 1",
+          title: "Open ProDoc",
+          subTitle: "Open prodoc builder",
+          additionalSearchParameters: "builder prodoc create new",
+          link: "build",
           command: "",
+          newTab: false,
         },
         {
-          title: "TITLE 2",
-          subTitle: "SUBTITLE 2",
-          additionalSearchParameters: "",
-          link: "LINK 2",
+          title: "Open ProDoc tutorial",
+          subTitle: "Open the tutorial for the ProDoc builder",
+          additionalSearchParameters: "help tutorial tut prodoc",
+          link: "tutorial",
           command: "",
+          newTab: false,
+        },
+        {
+          title: "Join Discord",
+          subTitle: "Join the discord from PandaDEV and Myself Waradu.",
+          additionalSearchParameters: "discord join help support",
+          link: "https://discord.gg/Y7SbYphVw9",
+          command: "",
+          newTab: true,
+        },
+        {
+          title: "PandaDEV",
+          subTitle: "Open PandaDEV's website.",
+          additionalSearchParameters: "",
+          link: "https://pandadev.tk",
+          command: "",
+          newTab: true,
+        },
+        {
+          title: "Open Main",
+          subTitle: "Open waradu's main website",
+          additionalSearchParameters: "waradu website waradu's",
+          link: "/",
+          command: "",
+          newTab: false,
         },
         {
           title: "Light/Dark Mode",
@@ -140,11 +177,11 @@ export default defineComponent({
           additionalSearchParameters: "dark light mode apperiance",
           link: "",
           command: "toggleTheme",
+          newTab: false,
         },
       ],
       showResults: false,
       activeIndex: -1,
-      showSearch: false,
     };
   },
   computed: {
@@ -159,11 +196,15 @@ export default defineComponent({
         (result) =>
           result.title.toLowerCase().includes(query) ||
           result.subTitle.toLowerCase().includes(query) ||
-          result.additionalSearchParameters.toLowerCase().includes(query)
+          result.additionalSearchParameters.toLowerCase().includes(query) ||
+          "*".includes(query)
       );
     },
   },
   methods: {
+    hideSearch() {
+      this.$emit('updateVariable');
+    },
     search() {
       this.activeIndex = -1;
     },
@@ -195,6 +236,9 @@ export default defineComponent({
         localStorage.setItem("theme", newTheme);
       }
     },
+  },
+  mounted() {
+      console.log(this.showSearch)
   },
 });
 </script>
