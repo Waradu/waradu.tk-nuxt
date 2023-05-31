@@ -43,6 +43,7 @@
               :href="result.link"
               @click="selectResult"
               target="_blank"
+              onclick="window.open(this.href,'_blank');return false;"
             >
               <h3 class="resultsTitle">{{ result.title }}</h3>
               <p class="resultsDesc">{{ result.subTitle }}</p>
