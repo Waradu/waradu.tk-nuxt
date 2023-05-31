@@ -15,8 +15,6 @@
     <hr />
     <DocsContent :data="page.components" />
   </div>
-
-  <Search :showSearch="getVar" @updateVariable="updateVariable" />
 </template>
 
 <script lang="ts">
@@ -24,18 +22,15 @@ export default {
   props: {
     data: {
       type: Object,
-      default: {},
+      default: {
+        title: ``,
+        description: ``,
+        back_arrow: false,
+        components: [],
+      },
     },
-  },
-  data() {
-    return {
-      showSearch: false,
-    };
   },
   computed: {
-    getVar() {
-      return this.showSearch
-    },
     page(): Object {
       return this.data;
     },
@@ -47,9 +42,6 @@ export default {
     },
   },
   methods: {
-    updateVariable() {
-      this.showSearch = true;
-    },
     toggleTheme() {
       const isDark =
         document.documentElement.getAttribute("data-theme") === "dark";

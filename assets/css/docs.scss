@@ -31,7 +31,8 @@
 
 body,
 html,
-#__nuxt {
+#__nuxt,
+#div {
   background-color: var(--bg);
   display: grid;
   place-items: center;

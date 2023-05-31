@@ -1,5 +1,5 @@
 <template>
-  <div class="searchContainer" v-if="!showSearch" @keydown.esc="hideSearch">
+  <div class="searchContainer">
     <div class="searchInside">
       <div
         class="search"
@@ -8,6 +8,7 @@
         @keydown.down="navigateResults(1)"
       >
         <input
+          id="searchInput"
           ref="searchInput"
           class="searchBox"
           type="text"
@@ -126,7 +127,6 @@
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  props: ['showSearch'],
   data() {
     return {
       searchQuery: "",
@@ -202,9 +202,6 @@ export default defineComponent({
     },
   },
   methods: {
-    hideSearch() {
-      this.$emit('updateVariable');
-    },
     search() {
       this.activeIndex = -1;
     },
@@ -236,9 +233,6 @@ export default defineComponent({
         localStorage.setItem("theme", newTheme);
       }
     },
-  },
-  mounted() {
-      console.log(this.showSearch)
   },
 });
 </script>

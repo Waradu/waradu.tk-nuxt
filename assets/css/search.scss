@@ -38,6 +38,7 @@
   place-items: center;
 
   .searchInside {
+    transition: .2s;
     border-radius: 16px;
     overflow: hidden;
     width: 400px;
