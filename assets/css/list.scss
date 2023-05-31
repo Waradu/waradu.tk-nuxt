@@ -145,6 +145,15 @@
   color: var(--txb);
 }
 
+.add_to_list:hover {
+  z-index: 1;
+  scale: 1.05;
+  box-shadow: 0 0 5px #00000030;
+}
+.add_to_list:active {
+  scale: 0.9;
+}
+
 .dragging {
   filter: brightness(90%);
 }
