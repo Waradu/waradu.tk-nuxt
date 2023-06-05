@@ -36,7 +36,7 @@ export default {
         back_arrow: true,
         components: [
           { type: Types.img, src: `home.png` },
-          { type: Types.text, text: `Drücke als erstes beim Dashboard auf <span class="btn-bg">Spende erfassen</span>.` }
+          { type: Types.text, title: false, text: `Drücke als erstes beim Dashboard auf <span class="btn-bg">Spende erfassen</span>.` }
         ],
       },
     };

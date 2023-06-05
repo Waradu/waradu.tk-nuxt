@@ -15,18 +15,21 @@
           <div v-if="index === dropIndex" class="drop-indicator"></div>
           <div class="component-type">
             {{ item.type }}
-            <!--<input
-              v-if="item.type === 'list item' || item.type === 'marked list'"
-              class="check-input"
-              type="checkbox"
-              :checked="item.type === 'marked list'"
-              @change="handleCheckboxChange(index)"
-            /> -->
           </div>
 
           <div class="component-text" v-if="item.type == 'text'">
             <div class="edit-text">Text:</div>
             <input class="text-input" type="text" v-model="item.text" />
+            <div class="titleConfig">
+              Title:
+              <input
+                v-if="item.type === 'text'"
+                class="check-input"
+                type="checkbox"
+                :checked="item.title"
+                @change="handleCheckboxChange(index)"
+              />
+            </div>
           </div>
 
           <div
@@ -106,7 +109,7 @@ export default {
   methods: {
     handleCheckboxChange(index) {
       const item = this.components[index];
-      item.type = item.type === 'marked list' ? 'list item' : 'marked list';
+      item.title = !item.title;
     },
     addItem(index) {
       this.components[index].items.push(

@@ -8,6 +8,12 @@ export default {
     return {
       sites: [
         {
+          text: "General",
+          icon: "home",
+          link: "general",
+          na: false
+        },
+        {
           text: "Spendeneinnahmen",
           icon: "segment",
           link: "spendeneinnahmen",

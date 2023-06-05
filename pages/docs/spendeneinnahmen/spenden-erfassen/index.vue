@@ -42,7 +42,7 @@ export default {
           },
           { type: Types.space },
           { type: Types.img, src: `neue-spende.png` },
-          { type: Types.text, text: `Füge als nächstes die Spende Daten ein.` },
+          { type: Types.text, title: false, text: `Füge als nächstes die Spende Daten ein.` },
           {
             type: Types.list,
             items: [
@@ -65,6 +65,7 @@ export default {
           },
           {
             type: Types.text,
+            title: false,
             text: `Klicke anschliessend auf <span class="btn-blue">Spende erstellen</span>.`,
           },
         ],

@@ -171,8 +171,10 @@ hr {
   display: block;
 }
 
-.text:has(.btn-blue) {
-  display: block;
+.isTitle {
+  font-size: 30px;
+  color: var(--txb);
+  font-weight: bold;
 }
 
 .blue-text {
@@ -245,6 +247,10 @@ hr {
   .btn-blue,
   .btn-bg {
     line-height: 35px;
+  }
+
+  .isTitle {
+    font-size: 25px;
   }
 }
 

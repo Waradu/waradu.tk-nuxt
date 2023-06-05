@@ -1,9 +1,11 @@
 <template>
   <div class="generated-content">
-    <template v-for="component in getData">
+    <template v-for="component, index in getData">
       <span
         v-if="component.type === 'text'"
         class="text"
+        :class="{ isTitle: component.title }"
+        :id="encodeURIComponent(component.text)+`-${index}`"
         v-html="component.text"
       ></span>
       <div v-else-if="component.type === 'space'" class="space"></div>

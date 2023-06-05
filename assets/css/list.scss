@@ -40,9 +40,16 @@
   overflow: visible;
   margin-right: 10px;
   display: grid;
-  grid-template-columns: max-content auto;
+  grid-template-columns: max-content auto 70px;
   gap: 10px;
   place-items: center;
+}
+
+.titleConfig {
+  color: var(--tx);
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
 }
 
 .draggable-item {
