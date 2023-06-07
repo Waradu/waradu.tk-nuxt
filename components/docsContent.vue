@@ -10,7 +10,7 @@
       ></span>
       <div v-else-if="component.type === 'space'" class="space"></div>
       <img
-        v-else-if="component.type === 'img'"
+        v-else-if="component.type === 'image'"
         alt="image couldn't load"
         class="image"
         loading="lazy"

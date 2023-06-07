@@ -41,7 +41,7 @@
             
           </div>
 
-          <div class="component-text" v-if="item.type == 'img'">
+          <div class="component-text" v-if="item.type == 'image'">
             <div class="edit-text">Src:</div>
             <input class="text-input" type="text" v-model="item.src" />
           </div>

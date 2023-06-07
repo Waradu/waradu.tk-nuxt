@@ -89,7 +89,7 @@ export default {
     class Elements {
       static get img() {
         return {
-          type: "img",
+          type: "image",
           src: ``,
         };
       }

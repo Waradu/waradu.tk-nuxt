@@ -17,7 +17,7 @@ export default {
         back_arrow_link: "/build",
         components: [
           {
-            type: "img",
+            type: "image",
             src: "preview.png",
           },
           {
@@ -29,7 +29,7 @@ export default {
             type: "space",
           },
           {
-            type: "img",
+            type: "image",
             src: "edit.png",
           },
           {
@@ -41,7 +41,7 @@ export default {
             type: "space",
           },
           {
-            type: "img",
+            type: "image",
             src: "title+desc.png",
           },
           {
@@ -53,7 +53,7 @@ export default {
             type: "space",
           },
           {
-            type: "img",
+            type: "image",
             src: "toolbar.png",
           },
           {
@@ -65,7 +65,7 @@ export default {
             type: "space",
           },
           {
-            type: "img",
+            type: "image",
             src: "listView.png",
           },
           {
@@ -77,7 +77,7 @@ export default {
             type: "space",
           },
           {
-            type: "img",
+            type: "image",
             src: "dark.png",
           },
           {

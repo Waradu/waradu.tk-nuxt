@@ -7,7 +7,7 @@ export default {
   data() {
     class Types {
       static get img() {
-        return "img";
+        return "image";
       }
 
       static get space() {
