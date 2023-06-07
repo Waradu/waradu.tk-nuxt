@@ -66,7 +66,7 @@ html,
 }
 
 .back-link {
-  grid-template-columns: 20px auto;
+  grid-template-columns: 20px max-content;
   grid-auto-rows: 20px;
   display: grid;
   align-items: center;
@@ -74,6 +74,7 @@ html,
   color: var(--txs);
   text-decoration: none;
   margin-bottom: 5px;
+  width: max-content;
 }
 
 .container {
@@ -274,4 +275,8 @@ hr {
 
 .preview .toggleThemeBtn {
   display: none;
+}
+
+.preview .back-link {
+  display: none !important;
 }
