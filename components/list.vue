@@ -17,7 +17,7 @@
             {{ item.type }}
           </div>
 
-          <div class="component-text" v-if="item.type == 'text'">
+          <div class="component-text typeText" v-if="item.type == 'text'">
             <div class="edit-text">Text:</div>
             <input class="text-input" type="text" v-model="item.text" />
             <div class="titleConfig">

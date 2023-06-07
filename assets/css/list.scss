@@ -40,9 +40,13 @@
   overflow: visible;
   margin-right: 10px;
   display: grid;
-  grid-template-columns: max-content auto 70px;
+  grid-template-columns: max-content auto;
   gap: 10px;
   place-items: center;
+}
+
+.typeText {
+  grid-template-columns: max-content auto 70px;
 }
 
 .titleConfig {
