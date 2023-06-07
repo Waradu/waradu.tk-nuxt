@@ -17,25 +17,25 @@
       <List :data="previewData" />
     </div>
     <div class="build-footer">
-      <button class="themeToggle material-symbols-rounded bluebtn" @click="toggleTheme">
+      <button title="Dark/Lightmode" class="themeToggle material-symbols-rounded bluebtn" @click="toggleTheme">
         dark_mode
       </button>
-      <button class="add material-symbols-rounded" v-on:click="addEle(Elements.text)">
+      <button title="Add Text" class="add material-symbols-rounded" v-on:click="addEle(Elements.text)">
         text_fields
       </button>
-      <button class="add material-symbols-rounded" v-on:click="addEle(Elements.img)">
+      <button title="Add Image" class="add material-symbols-rounded" v-on:click="addEle(Elements.img)">
         image
       </button>
-      <button class="add material-symbols-rounded" v-on:click="addEle(Elements.list)">
+      <button title="Add List" class="add material-symbols-rounded" v-on:click="addEle(Elements.list)">
         sort
       </button>
-      <button class="add material-symbols-rounded" v-on:click="addEle(Elements.space)">
+      <button title="Add Space" class="add material-symbols-rounded" v-on:click="addEle(Elements.space)">
         space_bar
       </button>
-      <button class="download material-symbols-rounded greenbtn" @click="openImportPopup">
+      <button title="Edit Data" class="download material-symbols-rounded greenbtn" @click="openImportPopup">
         edit
       </button>
-      <button class="clear material-symbols-rounded redbtn" @click="openPopup">
+      <button title="Clear all" class="clear material-symbols-rounded redbtn" @click="openPopup">
         clear
       </button>
     </div>

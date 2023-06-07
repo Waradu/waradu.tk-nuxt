@@ -60,12 +60,14 @@
               class="controll material-symbols-rounded"
               :disabled="index === 0"
               @click="moveItemUp(index)"
+              title="Move up"
             >
               expand_less
             </button>
             <button
               class="controll material-symbols-rounded redbtn"
               @click="deleteItem(item, index)"
+              title="Delete"
             >
               delete
             </button>
@@ -73,6 +75,7 @@
               class="controll material-symbols-rounded"
               :disabled="index === components.length - 1"
               @click="moveItemDown(index)"
+              title="Move down"
             >
               expand_more
             </button>
