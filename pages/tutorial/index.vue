@@ -22,6 +22,7 @@ export default {
           },
           {
             type: "text",
+            title: false,
             text: "This is the Prewiew of your documentation. It updates live as you edit.",
           },
           {
@@ -33,6 +34,7 @@ export default {
           },
           {
             type: "text",
+            title: false,
             text: "Next we have the work area.",
           },
           {
@@ -44,6 +46,7 @@ export default {
           },
           {
             type: "text",
+            title: false,
             text: "In there we have the Title/Description editor.",
           },
           {
@@ -55,7 +58,8 @@ export default {
           },
           {
             type: "text",
-            text: "The Toolbar for Dark/Light Mode, Add Text, Add Image, Add List, Add Space, Edit Data and Clear all.",
+            title: false,
+            text: "Down there whe have the Toolbar for Dark/Light Mode, Add Text, Add Image, Add List, Add Space, Edit Data and Clear all.",
           },
           {
             type: "space",
@@ -66,6 +70,7 @@ export default {
           },
           {
             type: "text",
+            title: false,
             text: "Finally we get to the list view where all your elements are listed. You can drag them or click on the up/down arrows to reorganize them. Edit the src, text and items (of list) down in the input box/item view. To delete items click on the red delete button.",
           },
           {
@@ -77,6 +82,7 @@ export default {
           },
           {
             type: "text",
+            title: false,
             text: "Btw we have a darkmode too (:",
           },
         ],

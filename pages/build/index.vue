@@ -17,40 +17,22 @@
       <List :data="previewData" />
     </div>
     <div class="build-footer">
-      <button
-        class="themeToggle material-symbols-rounded bluebtn"
-        @click="toggleTheme"
-      >
+      <button class="themeToggle material-symbols-rounded bluebtn" @click="toggleTheme">
         dark_mode
       </button>
-      <button
-        class="add material-symbols-rounded"
-        v-on:click="addEle(Elements.text)"
-      >
+      <button class="add material-symbols-rounded" v-on:click="addEle(Elements.text)">
         text_fields
       </button>
-      <button
-        class="add material-symbols-rounded"
-        v-on:click="addEle(Elements.img)"
-      >
+      <button class="add material-symbols-rounded" v-on:click="addEle(Elements.img)">
         image
       </button>
-      <button
-        class="add material-symbols-rounded"
-        v-on:click="addEle(Elements.list)"
-      >
+      <button class="add material-symbols-rounded" v-on:click="addEle(Elements.list)">
         sort
       </button>
-      <button
-        class="add material-symbols-rounded"
-        v-on:click="addEle(Elements.space)"
-      >
+      <button class="add material-symbols-rounded" v-on:click="addEle(Elements.space)">
         space_bar
       </button>
-      <button
-        class="download material-symbols-rounded greenbtn"
-        @click="openImportPopup"
-      >
+      <button class="download material-symbols-rounded greenbtn" @click="openImportPopup">
         edit
       </button>
       <button class="clear material-symbols-rounded redbtn" @click="openPopup">
@@ -74,10 +56,7 @@
   <div class="popup" id="popup">
     <div class="popup-content">
       <div class="popup-text">Do you really want to clear EVERYTHING?</div>
-      <button
-        class="cancle material-symbols-rounded redbtn"
-        @click="closePopup"
-      >
+      <button class="cancle material-symbols-rounded redbtn" @click="closePopup">
         clear
       </button>
       <button class="confirm material-symbols-rounded greenbtn" @click="clear">
@@ -88,16 +67,8 @@
 
   <div class="import" id="import">
     <div class="import-content">
-      <textarea
-        id="importText"
-        cols="30"
-        rows="10"
-        v-model="dataText"
-      ></textarea>
-      <button
-        class="confirm material-symbols-rounded greenbtn"
-        @click="closeImportPopup"
-      >
+      <textarea id="importText" cols="30" rows="10" v-model="dataText"></textarea>
+      <button class="confirm material-symbols-rounded greenbtn" @click="closeImportPopup">
         done
       </button>
     </div>
@@ -132,6 +103,7 @@ export default {
       static get text() {
         return {
           type: "text",
+          title: false,
           text: `NEW TEXT`,
         };
       }
@@ -148,7 +120,7 @@ export default {
       data: {
         title: ``,
         description: ``,
-        back_arrow: false,
+        back_arrow: true,
         components: [],
       },
       dataText: "",
@@ -192,7 +164,7 @@ export default {
       const jsonData = JSON.stringify(this.data, null, 2);
       navigator.clipboard
         .writeText(jsonData)
-        .then(() => {})
+        .then(() => { })
         .catch((error) => {
           console.error("Error copying data to clipboard:", error);
         });
