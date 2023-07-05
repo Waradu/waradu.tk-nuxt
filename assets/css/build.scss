@@ -445,22 +445,30 @@
 
 .hideUI .build-header,
 .hideUI .build-footer {
-  height: 0px;
-  padding: 0;
-  overflow: hidden;
-  padding-inline: 10px;
+  @media (max-width: 900px) {
+    height: 0px;
+    padding: 0;
+    overflow: hidden;
+    padding-inline: 10px;
+  }
 }
 
 .hideUI ~ .togglePage {
-  bottom: 20px;
+  @media (max-width: 900px) {
+    bottom: 20px;
+  }
 }
 
 .hideUI ~ .toggleUI {
-  bottom: 70px;
+  @media (max-width: 900px) {
+    bottom: 70px;
+  }
 }
 
 .hideUI ~ .toggleTheme {
-  bottom: 120px;
+  @media (max-width: 900px) {
+    bottom: 120px;
+  }
 }
 
 .showPreview ~ .togglePage {
